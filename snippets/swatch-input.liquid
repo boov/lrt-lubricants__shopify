@@ -15,14 +15,14 @@
   - additional_props: {String} (optional) additional properties to attach to the input
 
   Usage:
-   {% render 'swatch-input',
-      id: input_id,
-      name: input_name,
-      value: input_value,
-      swatch: swatch,
-      product_form_id: product_form_id,
-      checked: checked
-    %}
+  {% render 'swatch-input',
+  id: input_id,
+  name: input_name,
+  value: input_value,
+  swatch: swatch,
+  product_form_id: product_form_id,
+  checked: checked
+  %}
 {% endcomment %}
 
 <input
@@ -33,20 +33,20 @@
   form="{{ product_form_id }}"
   class="swatch-input__input{% if visually_disabled %} visually-disabled{% endif %}"
   {% if checked %}
-    checked
+  checked
   {% endif %}
   {% if disabled %}
-    disabled
+  disabled
   {% endif %}
   {% if additional_props %}
-    {{ additional_props }}
-  {% endif %}
->
+  {{ additional_props }}
+  {% endif %}>
 <label
   for="{{ id }}"
   title="{{ value }}"
-  class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
->
-  {% render 'swatch', swatch: swatch, shape: shape %}
+  class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}">
+  {% render "swatch"
+    , swatch: swatch
+    , shape: shape %}
   {{ help_text }}
 </label>

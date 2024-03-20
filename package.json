@@ -4,8 +4,8 @@
   "private": true,
   "author": "Matthew Booth <matthew@boov.co.uk>",
   "scripts": {
-    "prettier": "prettier --check {config,layout,locales,sections,snippets,templates}/**/*.{scss,js,json,liquid}",
-    "prettier:fix": "prettier --write {config,layout,locales,sections,snippets,templates}/**/*.{scss,js,json,liquid}",
+    "prettier": "prettier --check ./{src,config,layout,locales,sections,snippets,templates}/**/*.{scss,css,js,json}",
+    "prettier:fix": "prettier --write ./{src,config,layout,locales,sections,snippets,templates}/**/*.{scss,css,js,json}",
     "shopify:check": "shopify theme check --environment lrt",
     "shopify:dev": "shopify theme dev --environment lrt"
   },

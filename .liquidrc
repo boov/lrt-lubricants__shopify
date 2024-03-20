@@ -8,16 +8,17 @@
   },
   "format": {
     "ignore": [],
-    "wrap": 80,
+    "wrap": 120,
     "indentSize": 2,
-    "preserveLine": 2,
+    "preserveLine": 1,
     "endNewline": true,
     "liquid": {
-      "indentAttribute": true,
+      "indentAttribute": false,
       "lineBreakSeparator": "before",
       "normalizeSpacing": true,
       "quoteConvert": "double",
-      "ignoreTagList": []
+      "ignoreTagList": [],
+      "preserveInternal": true
     },
     "markup": {
       "quoteConvert": "double",
@@ -41,7 +42,7 @@
     },
     "style": {
       "noLeadZero": true,
-      "quoteConvert": "double",
+      "quoteConvert": "single",
       "atRuleSpace": true
     }
   }

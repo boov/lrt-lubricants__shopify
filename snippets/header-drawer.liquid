@@ -7,13 +7,10 @@
 
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
-    <summary
-      class="header__icon header__icon--menu header__icon--summary link focus-inset"
-      aria-label="{{ 'sections.header.menu' | t }}"
-    >
+    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
       <span>
-        {% render 'icon-hamburger' %}
-        {% render 'icon-close' %}
+        {% render "icon-hamburger" %}
+        {% render "icon-close" %}
       </span>
     </summary>
     <div id="menu-drawer" class="gradient menu-drawer motion-reduce color-{{ section.settings.menu_color_scheme }}">
@@ -25,25 +22,24 @@
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
-                      <summary
-                        id="HeaderDrawer-{{ link.handle }}"
-                        class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
-                      >
+                      <summary id="HeaderDrawer-{{ link.handle }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                         {{ link.title | escape }}
-                        {% render 'icon-arrow' %}
-                        {% render 'icon-caret' %}
+                        {% render "icon-arrow" %}
+                        {% render "icon-caret" %}
                       </summary>
                       <div
                         id="link-{{ link.handle | escape }}"
                         class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                        tabindex="-1"
-                      >
+                        tabindex="-1">
                         <div class="menu-drawer__inner-submenu">
                           <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                            {% render 'icon-arrow' %}
+                            {% render "icon-arrow" %}
                             {{ link.title | escape }}
                           </button>
-                          <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                          <ul
+                            class="menu-drawer__menu list-menu"
+                            role="list"
+                            tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
                                 {%- if childlink.links == blank -%}
@@ -52,37 +48,26 @@
                                     href="{{ childlink.url }}"
                                     class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"
                                     {% if childlink.current %}
-                                      aria-current="page"
-                                    {% endif %}
-                                  >
+                                    aria-current="page"
+                                    {% endif %}>
                                     {{ childlink.title | escape }}
                                   </a>
                                 {%- else -%}
                                   <details id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
-                                    <summary
-                                      id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
-                                      class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
-                                    >
+                                    <summary id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
                                       {{ childlink.title | escape }}
-                                      {% render 'icon-arrow' %}
-                                      {% render 'icon-caret' %}
+                                      {% render "icon-arrow" %}
+                                      {% render "icon-caret" %}
                                     </summary>
-                                    <div
-                                      id="childlink-{{ childlink.handle | escape }}"
-                                      class="menu-drawer__submenu has-submenu gradient motion-reduce"
-                                    >
-                                      <button
-                                        class="menu-drawer__close-button link link--text focus-inset"
-                                        aria-expanded="true"
-                                      >
-                                        {% render 'icon-arrow' %}
+                                    <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
+                                      <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
+                                        {% render "icon-arrow" %}
                                         {{ childlink.title | escape }}
                                       </button>
                                       <ul
                                         class="menu-drawer__menu list-menu"
                                         role="list"
-                                        tabindex="-1"
-                                      >
+                                        tabindex="-1">
                                         {%- for grandchildlink in childlink.links -%}
                                           <li>
                                             <a
@@ -90,9 +75,8 @@
                                               href="{{ grandchildlink.url }}"
                                               class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"
                                               {% if grandchildlink.current %}
-                                                aria-current="page"
-                                              {% endif %}
-                                            >
+                                              aria-current="page"
+                                              {% endif %}>
                                               {{ grandchildlink.title | escape }}
                                             </a>
                                           </li>
@@ -113,9 +97,8 @@
                       href="{{ link.url }}"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"
                       {% if link.current %}
-                        aria-current="page"
-                      {% endif %}
-                    >
+                      aria-current="page"
+                      {% endif %}>
                       {{ link.title | escape }}
                     </a>
                   {%- endif -%}
@@ -125,11 +108,8 @@
           </nav>
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
-              <a
-                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-                class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"
-              >
-                {% render 'icon-account' %}
+              <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide">
+                {% render "icon-account" %}
                 {%- liquid
                   if customer
                     echo 'customer.account_fallback' | t
@@ -143,12 +123,15 @@
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'localization-form' -%}
+                    {%- form 'localization'
+                      , id: 'HeaderCountryMobileForm'
+                      , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
-                          {{ 'localization.country_label' | t }}
+                          {{ "localization.country_label" | t }}
                         </h2>
-                        {%- render 'country-localization', localPosition: 'HeaderCountryMobile' -%}
+                        {%- render "country-localization"
+                          , localPosition: "HeaderCountryMobile" -%}
                       </div>
                     {%- endform -%}
                   </localization-form>
@@ -156,12 +139,15 @@
 
                 {%- if localization.available_languages and localization.available_languages.size > 1 -%}
                   <localization-form>
-                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
+                    {%- form 'localization'
+                      , id: 'HeaderLanguageMobileForm'
+                      , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
-                          {{ 'localization.language_label' | t }}
+                          {{ "localization.language_label" | t }}
                         </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
+                        {%- render "language-localization"
+                          , localPosition: "HeaderLanguageMobile" -%}
                       </div>
                     {%- endform -%}
                   </localization-form>
@@ -172,72 +158,90 @@
               {%- if settings.social_twitter_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_twitter_link }}" class="list-social__link link">
-                    {%- render 'icon-twitter' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.twitter' | t }}</span>
+                    {%- render "icon-twitter" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.twitter" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_facebook_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
-                    {%- render 'icon-facebook' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.facebook' | t }}</span>
+                    {%- render "icon-facebook" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.facebook" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_pinterest_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_pinterest_link }}" class="list-social__link link">
-                    {%- render 'icon-pinterest' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.pinterest' | t }}</span>
+                    {%- render "icon-pinterest" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.pinterest" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_instagram_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
-                    {%- render 'icon-instagram' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
+                    {%- render "icon-instagram" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.instagram" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_tiktok_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_tiktok_link }}" class="list-social__link link">
-                    {%- render 'icon-tiktok' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tiktok' | t }}</span>
+                    {%- render "icon-tiktok" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.tiktok" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_tumblr_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_tumblr_link }}" class="list-social__link link">
-                    {%- render 'icon-tumblr' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.tumblr' | t }}</span>
+                    {%- render "icon-tumblr" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.tumblr" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_snapchat_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_snapchat_link }}" class="list-social__link link">
-                    {%- render 'icon-snapchat' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.snapchat' | t }}</span>
+                    {%- render "icon-snapchat" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.snapchat" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_youtube_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_youtube_link }}" class="list-social__link link">
-                    {%- render 'icon-youtube' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.youtube' | t }}</span>
+                    {%- render "icon-youtube" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.youtube" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
               {%- if settings.social_vimeo_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_vimeo_link }}" class="list-social__link link">
-                    {%- render 'icon-vimeo' -%}
-                    <span class="visually-hidden">{{ 'general.social.links.vimeo' | t }}</span>
+                    {%- render "icon-vimeo" -%}
+                    <span class="visually-hidden">
+                      {{ "general.social.links.vimeo" | t }}
+                    </span>
                   </a>
                 </li>
               {%- endif -%}
