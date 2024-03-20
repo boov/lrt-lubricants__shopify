@@ -1,11 +1,11 @@
-if (!customElements.get('product-info')) {
+if (!customElements.get("product-info")) {
   customElements.define(
-    'product-info',
+    "product-info",
     class ProductInfo extends HTMLElement {
       constructor() {
         super();
-        this.input = this.querySelector('.quantity__input');
-        this.currentVariant = this.querySelector('.product-variant-id');
+        this.input = this.querySelector(".quantity__input");
+        this.currentVariant = this.querySelector(".product-variant-id");
         this.submitButton = this.querySelector('[type="submit"]');
       }
 
@@ -14,13 +14,13 @@ if (!customElements.get('product-info')) {
 
       connectedCallback() {
         if (!this.input) return;
-        this.quantityForm = this.querySelector('.product-form__quantity');
+        this.quantityForm = this.querySelector(".product-form__quantity");
         if (!this.quantityForm) return;
         this.setQuantityBoundries();
         if (!this.dataset.originalSection) {
           this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, this.fetchQuantityRules.bind(this));
         }
-        this.variantChangeUnsubscriber = subscribe(PUB_SUB_EVENTS.variantChange, (event) => {
+        this.variantChangeUnsubscriber = subscribe(PUB_SUB_EVENTS.variantChange, event => {
           const sectionId = this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section;
           if (event.data.sectionId !== sectionId) return;
           this.updateQuantityRules(event.data.sectionId, event.data.html);
@@ -42,7 +42,7 @@ if (!customElements.get('product-info')) {
           cartQuantity: this.input.dataset.cartQuantity ? parseInt(this.input.dataset.cartQuantity) : 0,
           min: this.input.dataset.min ? parseInt(this.input.dataset.min) : 1,
           max: this.input.dataset.max ? parseInt(this.input.dataset.max) : null,
-          step: this.input.step ? parseInt(this.input.step) : 1,
+          step: this.input.step ? parseInt(this.input.step) : 1
         };
 
         let min = data.min;
@@ -58,33 +58,33 @@ if (!customElements.get('product-info')) {
 
       fetchQuantityRules() {
         if (!this.currentVariant || !this.currentVariant.value) return;
-        this.querySelector('.quantity__rules-cart .loading__spinner').classList.remove('hidden');
+        this.querySelector(".quantity__rules-cart .loading__spinner").classList.remove("hidden");
         fetch(`${this.dataset.url}?variant=${this.currentVariant.value}&section_id=${this.dataset.section}`)
-          .then((response) => {
+          .then(response => {
             return response.text();
           })
-          .then((responseText) => {
-            const html = new DOMParser().parseFromString(responseText, 'text/html');
+          .then(responseText => {
+            const html = new DOMParser().parseFromString(responseText, "text/html");
             this.updateQuantityRules(this.dataset.section, html);
             this.setQuantityBoundries();
           })
-          .catch((e) => {
+          .catch(e => {
             console.error(e);
           })
           .finally(() => {
-            this.querySelector('.quantity__rules-cart .loading__spinner').classList.add('hidden');
+            this.querySelector(".quantity__rules-cart .loading__spinner").classList.add("hidden");
           });
       }
 
       updateQuantityRules(sectionId, html) {
         const quantityFormUpdated = html.getElementById(`Quantity-Form-${sectionId}`);
-        const selectors = ['.quantity__input', '.quantity__rules', '.quantity__label'];
+        const selectors = [".quantity__input", ".quantity__rules", ".quantity__label"];
         for (let selector of selectors) {
           const current = this.quantityForm.querySelector(selector);
           const updated = quantityFormUpdated.querySelector(selector);
           if (!current || !updated) continue;
-          if (selector === '.quantity__input') {
-            const attributes = ['data-cart-quantity', 'data-min', 'data-max', 'step'];
+          if (selector === ".quantity__input") {
+            const attributes = ["data-cart-quantity", "data-min", "data-max", "step"];
             for (let attribute of attributes) {
               const valueUpdated = updated.getAttribute(attribute);
               if (valueUpdated !== null) current.setAttribute(attribute, valueUpdated);
