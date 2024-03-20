@@ -1,0 +1,18 @@
+{
+  "name": "lrt-lubricants__shopify",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Matthew Booth <matthew@boov.co.uk>",
+  "scripts": {
+    "prettier": "prettier --check {config,layout,locales,sections,snippets,templates}/**/*.{scss,js,json,liquid}",
+    "prettier:fix": "prettier --write {config,layout,locales,sections,snippets,templates}/**/*.{scss,js,json,liquid}",
+    "shopify:check": "shopify theme check --environment lrt",
+    "shopify:dev": "shopify theme dev --environment lrt"
+  },
+  "browserslist": "last 4 years and not dead and > 0.25%",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.4.4",
+    "prettier": "^3.2.5"
+  },
+  "packageManager": "pnpm@8.15.3+sha256.fc4a49bd609550a41e14d20efbce802a4b892aa4cac877322de2f0924f122991"
+}

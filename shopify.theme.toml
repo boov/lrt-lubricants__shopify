@@ -1,0 +1,5 @@
+[environments.lrt]
+development = true
+live = false
+store = "boov-development.myshopify.com"
+theme = "127543967803"

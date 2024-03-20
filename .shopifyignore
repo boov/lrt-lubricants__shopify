@@ -1,0 +1,13 @@
+.editorconfig
+.env
+.env.example
+.github
+.gitignore
+.liquidrc
+.nvmrc
+.prettierrc.json
+.vscode
+bundle.mjs
+package-lock.json
+package.json
+pnpm-lock.yaml
