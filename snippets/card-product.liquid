@@ -265,7 +265,7 @@
         {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
       " style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
       <div class="card__inner ratio">
-        <div class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }}">
+        <div class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }}{% endif %}">
           <div class="media media--transparent">
             {%- if placeholder_image -%}
               {{ placeholder_image | placeholder_svg_tag: "placeholder-svg" }}

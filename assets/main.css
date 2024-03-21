@@ -202,7 +202,7 @@ input[type=submit] {
   color: var(--button--label);
   align-items: center;
   appearance: none;
-  border-radius: 100em;
+  border-radius: 6px;
   border-style: solid;
   border-width: 2px;
   cursor: pointer;
@@ -278,7 +278,7 @@ input.--negative.--outline[type=submit] {
 button.--square,
 input.--square[type=reset],
 input.--square[type=submit] {
-  border-radius: 0px;
+  border-radius: 6px;
 }
 .--icon.e_button,
 button.--icon,
@@ -364,7 +364,7 @@ input[type=submit] svg {
 }
 
 fieldset {
-  border-radius: 0px;
+  border-radius: 6px;
   margin: 0 0 1em 0;
   padding: 2em;
 }
@@ -377,7 +377,7 @@ fieldset legend {
 }
 
 figure {
-  border-radius: 0px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   margin: 2em auto;
   overflow: hidden;
@@ -596,7 +596,7 @@ html *, html *:after, html *:before {
 }
 
 img {
-  border-radius: 0px;
+  border-radius: 6px;
   display: block;
   height: auto;
   max-width: 100%;
@@ -613,7 +613,7 @@ select, textarea, input[type=date], input[type=datetime], input[type=datetime-lo
   color: #505050;
   color: var(--copy);
   appearance: none;
-  border-radius: 0px;
+  border-radius: 6px;
   border-style: solid;
   border-width: 2px;
   display: block;
@@ -749,7 +749,7 @@ p.--smallcaps {
 hr {
   background-color: #ededed;
   background-color: var(--border);
-  border-radius: 0px;
+  border-radius: 6px;
   border: none;
   height: 2px;
   margin: 1.5015625rem 0;
@@ -806,7 +806,7 @@ table tfoot th {
 }
 
 video {
-  border-radius: 0px;
+  border-radius: 6px;
   height: auto;
   max-width: 100%;
   vertical-align: middle;
@@ -879,6 +879,12 @@ video {
   padding-left: 24px;
   padding-right: 24px;
 }
+.l_flex.--wrap {
+  flex-wrap: wrap;
+}
+.l_flex.--nowrap {
+  flex-wrap: nowrap;
+}
 .l_flex.--align-center {
   align-items: center;
 }
@@ -930,6 +936,12 @@ video {
   .l_flex.--loose--sm > .l_flex__item {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .l_flex.--wrap--sm {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--sm {
+    flex-wrap: nowrap;
   }
   .l_flex.--align-center--sm {
     align-items: center;
@@ -984,6 +996,12 @@ video {
     padding-left: 24px;
     padding-right: 24px;
   }
+  .l_flex.--wrap--md {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--md {
+    flex-wrap: nowrap;
+  }
   .l_flex.--align-center--md {
     align-items: center;
   }
@@ -1036,6 +1054,12 @@ video {
   .l_flex.--loose--lg > .l_flex__item {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .l_flex.--wrap--lg {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--lg {
+    flex-wrap: nowrap;
   }
   .l_flex.--align-center--lg {
     align-items: center;
@@ -1090,6 +1114,12 @@ video {
     padding-left: 24px;
     padding-right: 24px;
   }
+  .l_flex.--wrap--xl {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--xl {
+    flex-wrap: nowrap;
+  }
   .l_flex.--align-center--xl {
     align-items: center;
   }
@@ -1143,6 +1173,12 @@ video {
     padding-left: 24px;
     padding-right: 24px;
   }
+  .l_flex.--wrap--xxl {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--xxl {
+    flex-wrap: nowrap;
+  }
   .l_flex.--align-center--xxl {
     align-items: center;
   }
@@ -1195,6 +1231,12 @@ video {
   .l_flex.--loose--site > .l_flex__item {
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .l_flex.--wrap--site {
+    flex-wrap: wrap;
+  }
+  .l_flex.--nowrap--site {
+    flex-wrap: nowrap;
   }
   .l_flex.--align-center--site {
     align-items: center;
@@ -2529,7 +2571,7 @@ video {
 .c_badge {
   background-color: #44bc21;
   background-color: var(--action);
-  border-radius: 0px;
+  border-radius: 6px;
   color: white;
   display: inline-block;
   font-size: 50%;
@@ -2643,7 +2685,7 @@ video {
   background-color: var(--background--highlight);
   color: #505050;
   color: var(--copy);
-  border-radius: 0px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   padding: 1.5015625rem;
   position: relative;
@@ -2702,7 +2744,7 @@ video {
   background-color: var(--background--highlight);
   color: #505050;
   color: var(--copy);
-  border-radius: 0px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
@@ -2749,14 +2791,14 @@ video {
   .c_company-logo,
   .c_company-logo img,
   .c_company-logo svg {
-    max-height: 50px;
+    max-height: 45px;
   }
 }
 @media (min-width: 1020px) {
   .c_company-logo,
   .c_company-logo img,
   .c_company-logo svg {
-    max-height: 75px;
+    max-height: 55px;
   }
 }
 .c_company-logo.--small,
@@ -3226,7 +3268,7 @@ video {
 }
 .c_lightbox__close {
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 0px 0px;
+  border-radius: 0 0 6px 6px;
   color: white;
   cursor: pointer;
   font-weight: 700;
@@ -3289,7 +3331,7 @@ video {
 }
 .c_modal__window {
   background-color: white;
-  border-radius: 0px;
+  border-radius: 6px;
   max-width: 500px;
   overflow: hidden;
   padding: 50px;
@@ -3360,7 +3402,7 @@ video {
 }
 
 .c_notification {
-  border-radius: 0px;
+  border-radius: 6px;
   display: flex;
   font-size: 1rem;
   margin: 0 0 1em 0;
@@ -3463,6 +3505,7 @@ video {
   max-width: 1920px;
   min-height: 100vh;
   overflow: hidden;
+  width: 100%;
 }
 
 .c_social-navigation {
@@ -3489,7 +3532,7 @@ video {
   background-color: var(--background--lowlight);
   color: #333333;
   color: var(--copy--bold);
-  border-radius: 0px;
+  border-radius: 6px;
   display: flex;
   height: 36px;
   transition: background-color 100ms ease-in-out;
@@ -3511,7 +3554,7 @@ video {
 .c_tag {
   background-color: #44bc21;
   background-color: var(--action);
-  border-radius: 0px;
+  border-radius: 6px;
   color: white;
   display: inline-block;
   font-size: 0.8333333333rem;
@@ -3546,7 +3589,7 @@ video {
 }
 .c_tipify:after {
   background-color: #222;
-  border-radius: 0px;
+  border-radius: 6px;
   bottom: calc(100% + 10px);
   color: white;
   content: attr(title);
@@ -3641,7 +3684,7 @@ video {
 }
 @media (min-width: 1440px) {
   .c_trim:before {
-    border-radius: 0px;
+    border-radius: 6px;
   }
 }
 @media (min-width: 600px) {
@@ -3696,11 +3739,11 @@ video {
 }
 
 .u_border-radius--default {
-  border-radius: 0px !important;
+  border-radius: 6px !important;
 }
 
 .u_border-radius--small {
-  border-radius: 0px !important;
+  border-radius: 3px !important;
 }
 
 .u_border-radius--round {
@@ -3739,62 +3782,62 @@ video {
 }
 @media (min-width: 600px) {
   .u_border-radius--default--sm {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 810px) {
   .u_border-radius--default--md {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 1020px) {
   .u_border-radius--default--lg {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 1230px) {
   .u_border-radius--default--xl {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 1440px) {
   .u_border-radius--default--xxl {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 1920px) {
   .u_border-radius--default--site {
-    border-radius: 0px !important;
+    border-radius: 6px !important;
   }
 }
 @media (min-width: 600px) {
   .u_border-radius--small--sm {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 810px) {
   .u_border-radius--small--md {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 1020px) {
   .u_border-radius--small--lg {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 1230px) {
   .u_border-radius--small--xl {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 1440px) {
   .u_border-radius--small--xxl {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 1920px) {
   .u_border-radius--small--site {
-    border-radius: 0px !important;
+    border-radius: 3px !important;
   }
 }
 @media (min-width: 600px) {
@@ -8866,11 +8909,11 @@ video {
   }
 }
 .glide.--carousel {
-  border-radius: 0px;
+  border-radius: 6px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 .glide.--carousel .glide__track {
-  border-radius: 0px 0px 0 0;
+  border-radius: 6px 6px 0 0;
   transition: height 100ms ease-in-out;
 }
 .glide.--carousel .glide__slides {
@@ -8881,7 +8924,7 @@ video {
   height: auto;
 }
 .glide.--carousel .glide__arrows {
-  border-radius: 0 0 0px 0px;
+  border-radius: 0 0 6px 6px;
   display: flex;
   justify-content: space-evenly;
   padding: 8px 0;

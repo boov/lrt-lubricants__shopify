@@ -1,0 +1,76 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ app.url }}/#organization",
+        "name": "{{ company.name }}",
+        "url": "{{ app.url }}",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "{{ app.url }}/#logo",
+          "inLanguage": "{{ app.locale }}",
+          "url": "/assets/schema_logo.png?ver={{ app.time }}",
+          "width": 640,
+          "height": 320,
+          "caption": "{{ company.name }}"
+        },
+        "image": {
+          "@id": "{{ app.url }}/#logo"
+        },
+        "sameAs": [
+          {%- for network in social %}
+          "{{ network.url }}"{%- unless forloop.last %},{%- endunless %}
+          {%- endfor %}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ app.url }}/#website",
+        "url": "{{ app.url }}",
+        "name": "{{ company.name }}",
+        "inLanguage": "{{ app.locale }}",
+        "publisher": {
+          "@id": "{{ app.url }}/#organization"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ app.url }}/#webpage",
+        "url": "{{ app.url }}",
+        "name": "{{ title | default: app.title }} - {{ company.name }}",
+        "isPartOf": {
+          "@id": "{{ app.url }}/#website"
+        },
+        "inLanguage": "{{ app.locale }}",
+        "about": {
+          "@id": "{{ app.url }}/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "{{ app.url }}"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "{{ app.url }}/#localbusiness",
+        "name": "{{ company.name }}",
+        "url": "{{ app.url }}",
+        "image": "/assets/schema_logo.png?ver={{ app.time }}",
+        "telephone": "{{ contact.phone.default.href }}",
+        "email": "{{ contact.email.default }}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ contact.address.default }}"
+        },
+        "openingHours": "{{ company.openingHours }}",
+        "priceRange": "Varies"
+      }
+    ]
+  }
+  </script>

@@ -1,0 +1,66 @@
+<div class="c_topbar ~~invert">
+  <div class="l_container">
+
+    {%- if section.settings.message and false -%}
+
+      <p class="u_margin-bottom--none u_text-align--center">{{ section.settings.message }}</p>
+
+    {%- endif -%}
+
+    <div class="l_flex --align-center --justify-between">
+      <div class="l_flex__item">
+        <p class="c_topbar__rating">Rated <strong>5</strong> out of <strong>5</strong> from <a href="#">17 reviews</a></p>
+      </div>
+
+      {%- if section.settings.menu.links %}
+
+        <div class="l_flex__item --shrink u_display--none u_display--block--sm">
+          <nav class="c_topbar__menu">
+            <ul>
+
+              {%- for link in section.settings.menu.links -%}
+
+                <li class="_asd"><a href="{{ link.url }}">{{- link.title | escape -}}</a></li>
+
+              {%- endfor -%}
+
+              {%- if shop.customer_accounts_enabled -%}
+
+                <li class="_account">
+                  <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">
+
+                    {%- if customer %}My Account{%- else %}Log in{%- endif -%}
+
+                  </a>
+                </li>
+
+              {%- endif -%}
+
+            </ul>
+          </nav>
+        </div>
+
+      {%- endif %}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Topbar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "message",
+        "label": "Message"
+      },
+      {
+        "label": "Menu",
+        "id": "menu",
+        "type": "link_list",
+        "default": "topbar-menu"
+      }
+    ]
+  }
+{% endschema %}

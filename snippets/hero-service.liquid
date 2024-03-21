@@ -1,0 +1,14 @@
+<div class="c_hero --service ~~invert">
+  <div class="l_container">
+    <div class="c_hero__content">
+      <h2 class="u_margin-bottom--half">
+        <a href="/our-products" class="e_button --text">
+          <svg class="c_feather-icon"><use xlink:href="/assets/feather.svg#arrow-left"/></svg>
+          Our Other Products</a>
+      </h2>
+      <h1 class="u_margin-bottom--half --h2">{{ title }}</h1>
+      <p class="--lead u_margin-bottom--none">{{ excerpt }}</p>
+    </div>
+    {%- if featured_image %}<img class="c_hero__image" src="{{ featured_image }}" alt="">{%- endif %}
+  </div>
+</div>

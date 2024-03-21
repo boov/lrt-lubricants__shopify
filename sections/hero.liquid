@@ -1,0 +1,47 @@
+{% case section.settings.template %}
+  {% when "home" %}
+    {%- render "hero-home" %}
+  {% when "industry" %}
+    {%- render "hero-industry" %}
+  {% when "service" %}
+    {%- render "hero-service" %}
+  {% when "default" %}
+    {%- render "hero-default" %}
+  {% else %}
+    {%- render "hero-default" %}
+{% endcase %}
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "label": "Template",
+        "id": "template",
+        "type": "select",
+        "options": [
+          { "value": "home", "label": "Home" },
+          { "value": "industry", "label": "Industry" },
+          { "value": "service", "label": "Service" },
+          { "value": "default", "label": "Default" }
+        ],
+        "default": "default"
+      },
+      {
+        "label": "Pre-Title",
+        "id": "pre_title",
+        "type": "text"
+      },
+      {
+        "label": "Title",
+        "id": "title",
+        "type": "text"
+      },
+      {
+        "label": "Excerpt",
+        "id": "excerpt",
+        "type": "text"
+      }
+    ]
+  }
+{% endschema %}

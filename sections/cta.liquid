@@ -1,0 +1,41 @@
+<div class="c_cta ~~action">
+  <div class="l_container">
+    <div class="l_flex --justify-between --align-center">
+      <div class="l_flex__item --span-12 --sm --span-8--lg u_display--none u_display--block--sm">
+
+        <div class="l_flex --tight --align-center">
+          <div class="l_flex__item --shrink">
+            <h2 class="u_margin-bottom--none --h6">Enquiries</h2>
+          </div>
+          <div class="l_flex__item --shrink">
+            <p class="u_margin-bottom--none"><a href="tel:{{ contact.phone.default.href }}">{{ contact.phone.default.display }}</a></p>
+          </div>
+          <div class="l_flex__item --shrink">
+            <p class="u_margin-bottom--none"><a href="mailto:{{ contact.email.default }}">{{ contact.email.default }}</a></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="l_flex__item --span-12 --shrink--sm">
+        <nav class="c_social-navigation">
+          <ul class="c_social-navigation__menu">
+
+            {%- for network in social %}
+
+              <li class="c_social-navigation__item"><a href="{{ network.url }}" class="c_social-navigation__link c_icomoon --{{ network.name | downcase }}" target="_blank" rel="noopener" aria-label="View our {{ network.name }} profile" title="View our {{ network.name }} profile"></a></li>
+
+            {%- endfor %}
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "CTA",
+    "settings": []
+  }
+{% endschema %}

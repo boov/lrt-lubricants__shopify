@@ -1,0 +1,32 @@
+<div class="c_banner ~~brand">
+  <div class="l_container">
+    <div class="l_flex --nowrap --tight --align-center --justify-between">
+      <div class="l_flex__item --shrink--md">
+        <a class="c_company-logo" href="{{ routes.root_url }}" title="Head Back Home" aria-label="Head Back Home">
+          <img src="/assets/logo.svg?ver={{ app.time }}" alt="LRT Lubricants Logo">
+        </a>
+      </div>
+      <div class="l_flex__item --shrink--md u_margin-x--auto">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="~~default">
+          <input id="{{ input_id }}" class="e_input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search&hellip;">
+          <input type="hidden" name="options[prefix]" value="last">
+        </form>
+      </div>
+      <div class="l_flex__item --shrink u_display--none u_display--block--sm">
+        <a href="{{ routes.cart_url }}" class="e_button">
+          {{ cart.item_count }}
+        </a>
+      </div>
+      <div class="l_flex__item --shrink u_display--none u_display--block--sm">
+        <a href="/contact-us" class="e_button">Get in Touch
+        </a>
+      </div>
+      <div class="l_flex__item --shrink u_display--none--sm">
+        <a href="#" class="e_button --icon js_gutter-toggle" data-target="gutter-menu" aria-label="Open Mobile Navigation" title="Open Mobile Navigation">
+          <svg class="c_feather-icon"><use xlink:href="/assets/feather.svg#menu" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

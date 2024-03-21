@@ -1,0 +1,54 @@
+<nav class="c_navigation ~~brand">
+  <div class="l_container">
+    <ul class="c_navigation__menu" role="list">
+
+      {%- for link in section.settings.menu.links -%}
+
+        <li class="c_navigation__item">
+
+          {%- if link.links != blank -%}
+
+            <details>
+              <summary class="{% if link.child_active %} --active {% endif %}">{{- link.title | escape -}}</summary>
+              <ul class="" role="list" tabindex="-1">
+
+                {%- for childlink in link.links -%}
+
+                  <li>
+                    <a href="{{ childlink.url }}" class="{% if childlink.current %} --active {% endif %}" {% if childlink.current %} aria-current="page" {% endif %}>
+                      {{ childlink.title | escape }}
+                    </a>
+                  </li>
+
+                {%- endfor -%}
+
+              </ul>
+            </details>
+
+          {%- else -%}
+
+            <a href="{{ link.url }}" class="c_navigation__link {% if link.current %}--active{% endif %}" {% if link.current %} aria-current="page" {% endif %}>{{- link.title | escape -}}</a>
+
+          {%- endif -%}
+
+        </li>
+
+      {%- endfor -%}
+
+    </ul>
+  </div>
+</nav>
+
+{% schema %}
+  {
+    "name": "Navigation",
+    "settings": [
+      {
+        "label": "Menu",
+        "id": "menu",
+        "type": "link_list",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}

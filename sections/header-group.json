@@ -1,37 +1,31 @@
 {
-  "name": "t:sections.header.name",
+  "name": "Header",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "link": ""
-          }
-        }
-      },
-      "block_order": ["announcement-bar-0"]
+    "topbar": {
+      "type": "topbar",
+      "settings": { "message": "Welcome to our store" }
     },
-    "header": {
-      "type": "header",
+    "banner": {
+      "type": "banner",
+      "settings": {}
+    },
+    "navigation": {
+      "type": "navigation",
+      "settings": {}
+    },
+    "hero": {
+      "type": "hero",
       "settings": {
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "template": "home",
+        "pre_title": "Welcome to LRT Lubricants",
+        "title": "Suppliers of Lubricants, Greases, Oils and more",
+        "excerpt": "LRT Lubricants is here to take the confusion out of choosing the correct products for all your mechanical needs to help keep the cogs turning and wheels moving with a fast, reliable and helpful service."
       }
+    },
+    "usps": {
+      "type": "usps"
     }
   },
-  "order": ["announcement-bar", "header"]
+  "order": ["topbar", "banner", "navigation", "hero", "usps"]
 }

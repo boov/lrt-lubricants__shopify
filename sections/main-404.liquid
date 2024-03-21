@@ -1,23 +1,36 @@
-<style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
-  }
+{% layout theme %}
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
-    }
-  }
-</style>
+<section class="c_band --spacious">
+  <div class="l_container --sm u_text-align--center">
+    <svg class="c_feather-icon --xl u_margin-bottom--double u_color--brand"><use xlink:href="/assets/feather.svg#alert-circle"/></svg>
+    <h1 class="u_margin-bottom--half">{{ section.settings.title }}</h1>
+    <p class="--lead">{{ section.settings.description }}</p>
+    <a href="{{ routes.root_url }}" class="e_button --outline">{{ section.settings.button_label }}</a>
+  </div>
+</section>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ "templates.404.subtext" | t }}
-  </p>
-  <h1 class="title">
-    {{ "templates.404.title" | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ "general.continue_shopping" | t }}
-  </a>
-</div>
+{% schema %}
+  {
+    "name": "404",
+    "settings": [
+      {
+        "label": "Title",
+        "id": "title",
+        "type": "text",
+        "default": "Page Not Found"
+      },
+      {
+        "label": "Description",
+        "id": "description",
+        "type": "text",
+        "default": "The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+      },
+      {
+        "label": "Button Label",
+        "id": "button_label",
+        "type": "text",
+        "default": "Head Back Home"
+      }
+    ]
+  }
+{% endschema %}

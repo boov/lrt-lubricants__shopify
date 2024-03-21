@@ -1,0 +1,22 @@
+<div class="c_hero --home ~~invert">
+  <div class="l_container">
+    <div class="c_hero__content">
+
+      {%- if section.settings.pre_title %}
+
+        <h2 class="--smallcaps u_color--brand">{{ section.settings.pre_title }}</h2>
+
+      {%- endif %}
+
+      <h1 class="u_margin-bottom--half">{{ section.settings.title }}</h1>
+
+      {%- if section.settings.excerpt %}
+
+        <p class="--lead u_margin-bottom--double">{{ section.settings.excerpt }}</p>
+
+      {%- endif %}
+
+    </div>
+    <img class="c_hero__image" src="/assets/hero_home.jpg?ver={{ app.time }}" alt="">
+  </div>
+</div>

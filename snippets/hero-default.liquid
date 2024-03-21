@@ -1,0 +1,11 @@
+<div class="c_hero ~~invert">
+  <div class="l_container --{{ hero_width | default: 'xl' }}">
+    <div class="c_hero__content">
+      <h1 class="u_margin-bottom--half">{{ title }}</h1>
+      {%- if excerpt %}
+        <p class="--lead u_margin-bottom--none">{{ excerpt }}</p>
+      {%- endif %}
+    </div>
+    {%- if featured_image %}<img class="c_hero__image" src="{{ featured_image }}" alt="">{%- endif %}
+  </div>
+</div>

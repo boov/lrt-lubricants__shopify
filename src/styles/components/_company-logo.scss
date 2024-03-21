@@ -8,11 +8,11 @@
     max-height: 40px;
 
     @include breakpoint("sm") {
-      max-height: 50px;
+      max-height: 45px;
     }
 
     @include breakpoint("lg") {
-      max-height: 75px;
+      max-height: 55px;
     }
   }
 

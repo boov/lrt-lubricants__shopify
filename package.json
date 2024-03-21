@@ -7,7 +7,9 @@
     "prettier": "prettier --check ./{src,config,layout,locales,sections,snippets,templates}/**/*.{scss,css,js,json}",
     "prettier:fix": "prettier --write ./{src,config,layout,locales,sections,snippets,templates}/**/*.{scss,css,js,json}",
     "shopify:check": "shopify theme check --environment lrt",
-    "shopify:dev": "shopify theme dev --environment lrt"
+    "shopify:dev": "shopify theme dev --environment lrt",
+    "build": "node bundle.mjs",
+    "dev": "run-p build shopify:dev"
   },
   "browserslist": "last 4 years and not dead and > 0.25%",
   "devDependencies": {
@@ -16,6 +18,7 @@
     "chokidar": "^3.6.0",
     "cookieconsent": "^3.1.1",
     "lightningcss": "^1.24.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
     "sass": "^1.72.0"
   },

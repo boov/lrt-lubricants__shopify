@@ -1,0 +1,30 @@
+<div class="c_trim ~~invert">
+  <div class="l_container">
+    <div class="l_flex">
+      <div class="l_flex__item --span-12 --md">
+        <nav class="c_trim-navigation">
+          <ul class="c_trim-navigation__menu">
+            <li class="c_trim-navigation__item"><a class="c_trim-navigation__link" href="/returns">Returns</a></li>
+            <li class="c_trim-navigation__item"><a class="c_trim-navigation__link" href="/shipping">Shipping</a></li>
+            <li class="c_trim-navigation__item"><a class="c_trim-navigation__link" href="/privacy-policy">Privacy Policy</a></li>
+            <li class="c_trim-navigation__item"><a class="c_trim-navigation__link" href="/terms-of-service">Terms of Service</a></li>
+            <li class="c_trim-navigation__item"><a class="c_trim-navigation__link" href="/about-us">About Us</a></li>
+          </ul>
+        </nav>
+        <p class="--smallprint u_margin-bottom--none--md">&copy; {{ company.name }} 2020 &bull; Vat Registration Number #{{ company.vat }}. Website by
+          <a href="https://www.boov.co.uk" target="_blank" rel="noopener">Boov.co.uk</a>
+        </p>
+      </div>
+      <div class="l_flex__item --span-12 --shrink--md">
+        <img src="/assets/cards.png?ver={{ app.time }}" style="max-height:50px" alt="Merchant Equipment Store Credit Card Logos"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Trim",
+    "settings": []
+  }
+{% endschema %}

@@ -45,6 +45,14 @@ $l_flex--gap--loose: 48px;
     }
   }
 
+  &.--wrap {
+    flex-wrap: wrap;
+  }
+
+  &.--nowrap {
+    flex-wrap: nowrap;
+  }
+
   &.--align-center {
     align-items: center;
   }
@@ -111,6 +119,14 @@ $l_flex--gap--loose: 48px;
           padding-left: $l_flex--gap--loose * 0.5;
           padding-right: $l_flex--gap--loose * 0.5;
         }
+      }
+
+      &.--wrap--#{$breakpoint-name} {
+        flex-wrap: wrap;
+      }
+
+      &.--nowrap--#{$breakpoint-name} {
+        flex-wrap: nowrap;
       }
 
       &.--align-center--#{$breakpoint-name} {
