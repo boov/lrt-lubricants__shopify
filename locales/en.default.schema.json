@@ -382,11 +382,6 @@
           "label": "Image behavior"
         }
       },
-      "padding": {
-        "section_padding_heading": "Section padding",
-        "padding_top": "Top padding",
-        "padding_bottom": "Bottom padding"
-      },
       "spacing": "Spacing",
       "colors": {
         "label": "Color scheme",

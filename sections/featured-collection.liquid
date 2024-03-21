@@ -3,20 +3,6 @@
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 {%- liquid
   assign products_to_display = section.settings.collection.all_products_count
 
@@ -380,30 +366,6 @@ settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif
         "id": "swipe_on_mobile",
         "default": false,
         "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_padding_heading"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 36
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 36
       }
     ],
     "presets": [
