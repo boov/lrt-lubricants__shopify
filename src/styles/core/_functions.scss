@@ -1,0 +1,65 @@
+@use "sass:math";
+
+@function strip-unit($num) {
+  @return math.div($num, $num * 0 + 1);
+}
+
+@function to-rem($value, $base: null) {
+  @if (unit($value) == "em") {
+    $value: strip-unit($value) * 1rem;
+  }
+
+  @if (unit($value) != "rem") {
+    $value: math.div(strip-unit($value), strip-unit($base)) * 1rem;
+  }
+
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+
+  @return $value;
+}
+
+@function rem-calc($value, $base: null) {
+  @if ($base == null) {
+    $base: 100%;
+  }
+
+  @if (unit($base) == "%") {
+    $base: math.div($base, 100%) * 16px;
+  }
+
+  @if (unit($base) == "rem") {
+    $base: strip-unit($base) * 16px;
+  }
+
+  @return to-rem($value, $base);
+}
+
+@function modular-scale($value, $increment: 0, $ratio: $scale--measurements) {
+  @if ($increment > 0) {
+    @for $i from 1 through $increment {
+      $value: $value * $ratio;
+    }
+  }
+
+  @if ($increment < 0) {
+    @for $i from 1 through abs($increment) {
+      $value: math.div($value, $ratio);
+    }
+  }
+
+  @return $value;
+}
+
+@function rem-scale($increment: 0, $ratio: $scale--typography) {
+  @return modular-scale(1rem, $increment, $ratio);
+}
+
+@function em-scale($increment: 0, $ratio: $scale--typography) {
+  @return modular-scale(1em, $increment, $ratio);
+}
+
+@function spacer($key: 3) {
+  @return map-get($spacers, $key);
+}

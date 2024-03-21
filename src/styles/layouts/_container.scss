@@ -1,0 +1,25 @@
+$l_container--padding: 20px;
+
+.l_container {
+  margin: 0 auto;
+  max-width: map-get($breakpoints, xl) + ($l_container--padding * 2);
+  padding: 0 $l_container--padding;
+  width: 100%;
+
+  @include breakpoint("sm") {
+    width: 95%;
+  }
+
+  &.--full {
+    max-width: map-get($breakpoints, site);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  @each $breakpoint-name, $breakpoint-size in map-remove($breakpoints, xl) {
+    &.--#{$breakpoint-name} {
+      max-width: $breakpoint-size + ($l_container--padding * 2);
+    }
+  }
+}

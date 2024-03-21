@@ -1,0 +1,33 @@
+ol,
+ul {
+  list-style-position: outside;
+  margin: 0 0 1em 0;
+  padding: 0;
+
+  & & {
+    margin: 0 0 0 2em;
+  }
+}
+
+dl {
+  display: grid;
+  grid-gap: 0.5em spacer(3);
+  grid-template-columns: min-content 1fr;
+  margin: 0 0 1em 0;
+
+  dt {
+    @include swatch("color", "copy--bold");
+    font-weight: $font-weight--bold;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint("sm") {
+      white-space: nowrap;
+    }
+  }
+
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+}

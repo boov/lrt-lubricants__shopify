@@ -1,0 +1,24 @@
+hr {
+  @include swatch("background-color", "border");
+  border-radius: $border-radius;
+  border: none;
+  height: $border-width;
+  margin: spacer(3) 0;
+  width: spacer(5);
+
+  @include breakpoint("md") {
+    margin: spacer(4) 0;
+  }
+
+  &.--full {
+    width: auto;
+  }
+
+  &.--spacious {
+    margin: spacer(4) 0;
+
+    @include breakpoint("md") {
+      margin: spacer(5) 0;
+    }
+  }
+}

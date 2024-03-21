@@ -1,0 +1,30 @@
+@mixin breakpoint($breakpoint, $direction: "up") {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin icon-font($content: false, $font: "icomoon") {
+  font-family: $font;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+
+  @if ($content) {
+    content: $content;
+  }
+}
+
+@mixin swatch($property, $swatch) {
+  $default: map-get($palettes, default);
+
+  @if (map-has-key($default, $swatch)) {
+    #{$property}: map-get($default, $swatch);
+    #{$property}: var(--#{$swatch});
+  } @else {
+    @warn "'#{$swatch}' passed to swatch() is not a valid swatch name.";
+  }
+}

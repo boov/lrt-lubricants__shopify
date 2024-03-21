@@ -1,0 +1,80 @@
+$u_padding--utilities: (
+  double: 2em,
+  half: 0.5em,
+  none: 0,
+  s1: spacer(1),
+  s2: spacer(2),
+  s3: spacer(3),
+  s4: spacer(4),
+  s5: spacer(5),
+  s6: spacer(6),
+  s7: spacer(7)
+);
+
+@each $utility-key, $utility-value in $u_padding--utilities {
+  .u_padding--#{$utility-key} {
+    padding: $utility-value !important;
+  }
+
+  .u_padding-x--#{$utility-key} {
+    padding-left: $utility-value !important;
+    padding-right: $utility-value !important;
+  }
+
+  .u_padding-y--#{$utility-key} {
+    padding-bottom: $utility-value !important;
+    padding-top: $utility-value !important;
+  }
+
+  .u_padding-top--#{$utility-key} {
+    padding-top: $utility-value !important;
+  }
+
+  .u_padding-right--#{$utility-key} {
+    padding-right: $utility-value !important;
+  }
+
+  .u_padding-bottom--#{$utility-key} {
+    padding-bottom: $utility-value !important;
+  }
+
+  .u_padding-left--#{$utility-key} {
+    padding-left: $utility-value !important;
+  }
+}
+
+@each $utility-key, $utility-value in $u_padding--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_padding--#{$utility-key}--#{$breakpoint-name} {
+        padding: $utility-value !important;
+      }
+
+      .u_padding-x--#{$utility-key}--#{$breakpoint-name} {
+        padding-left: $utility-value !important;
+        padding-right: $utility-value !important;
+      }
+
+      .u_padding-x--#{$utility-key}--#{$breakpoint-name} {
+        padding-bottom: $utility-value !important;
+        padding-top: $utility-value !important;
+      }
+
+      .u_padding-top--#{$utility-key}--#{$breakpoint-name} {
+        padding-top: $utility-value !important;
+      }
+
+      .u_padding-right--#{$utility-key}--#{$breakpoint-name} {
+        padding-right: $utility-value !important;
+      }
+
+      .u_padding-bottom--#{$utility-key}--#{$breakpoint-name} {
+        padding-bottom: $utility-value !important;
+      }
+
+      .u_padding-left--#{$utility-key}--#{$breakpoint-name} {
+        padding-left: $utility-value !important;
+      }
+    }
+  }
+}

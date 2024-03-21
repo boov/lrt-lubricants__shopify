@@ -1,0 +1,10 @@
+.c_cta {
+  @include swatch("background-color", "background");
+  @include swatch("color", "copy");
+  font-size: rem-scale(1);
+  padding: spacer(3) 0;
+
+  @include breakpoint("sm") {
+    padding: spacer(4) 0;
+  }
+}

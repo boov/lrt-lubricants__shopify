@@ -11,15 +11,7 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
-  <variant-selects
-    id="variant-selects-{{ section.id }}"
-    data-section="{{ section.id }}"
-    data-url="{{ product.url }}"
-    data-product-id="{{ product.id }}"
-    {% if update_url == false %}
-    data-update-url="false"
-    {% endif %}
-    {{ block.shopify_attributes }}>
+  <variant-selects id="variant-selects-{{ section.id }}" data-section="{{ section.id }}" data-url="{{ product.url }}" data-product-id="{{ product.id }}" {% if update_url == false %} data-update-url="false" {% endif %} {{ block.shopify_attributes }}>
     {%- for option in product.options_with_values -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
@@ -71,11 +63,7 @@
                   , shape: block.settings.swatch_shape %}
               </span>
             {%- endif -%}
-            <select
-              id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
-              name="options[{{ option.name | escape }}]"
-              form="{{ product_form_id }}">
+            <select id="Option-{{ section.id }}-{{ forloop.index0 }}" class="select__select" name="options[{{ option.name | escape }}]" form="{{ product_form_id }}">
               {% render "product-variant-options"
                 , product: product
                 , option: option

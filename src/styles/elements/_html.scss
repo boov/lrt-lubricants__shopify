@@ -1,0 +1,39 @@
+@use "sass:math";
+
+html {
+  @extend .\~\~default;
+  @include swatch("background-color", "background--lowlight");
+  @include swatch("color", "copy");
+  box-sizing: border-box;
+  font-family: $font-family;
+  font-size: percentage(math.div(14, 16));
+  font-variant-ligatures: none;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+
+  @include breakpoint("md") {
+    font-size: percentage(math.div(15, 16));
+  }
+
+  @include breakpoint("lg") {
+    font-size: percentage(math.div(16, 16));
+  }
+
+  @include breakpoint("xl") {
+    font-size: percentage(math.div(17, 16));
+  }
+
+  @include breakpoint("xxl") {
+    font-size: percentage(math.div(18, 16));
+  }
+
+  * {
+    &,
+    &:after,
+    &:before {
+      box-sizing: inherit;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$u_clear--utilities: (both, left, none, right);
+
+@each $utility-value in $u_clear--utilities {
+  .u_clear--#{$utility-value} {
+    clear: $utility-value !important;
+  }
+}
+
+@each $utility-value in $u_clear--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_clear--#{$utility-value}--#{$breakpoint-name} {
+        clear: $utility-value !important;
+      }
+    }
+  }
+}

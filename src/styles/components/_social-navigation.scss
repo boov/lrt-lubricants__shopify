@@ -1,0 +1,45 @@
+.c_social-navigation {
+  font-size: $font-size--small;
+
+  &__menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin-left: 0.5em;
+
+    &:first-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    @include swatch("background-color", "background--lowlight");
+    @include swatch("color", "copy--bold");
+    border-radius: $border-radius;
+    display: flex;
+    height: 36px;
+    transition: background-color $duration ease-in-out;
+    width: 36px;
+    justify-content: center;
+    align-items: center;
+
+    &:focus,
+    &:hover {
+      @include swatch("background-color", "background--lowlight");
+      @include swatch("color", "copy--bold");
+      outline: none;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}

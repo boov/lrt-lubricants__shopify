@@ -1,0 +1,92 @@
+%e_input {
+  @include swatch("background-color", "background--highlight");
+  @include swatch("border-color", "background--highlight");
+  @include swatch("color", "copy");
+  appearance: none;
+  border-radius: $border-radius;
+  border-style: solid;
+  border-width: $border-width;
+  display: block;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  margin: 0;
+  padding: 1em 1.3em;
+  width: 100%;
+
+  &:focus {
+    @include swatch("border-color", "background--lowlight");
+    outline: none;
+
+    &:invalid {
+      @include swatch("border-color", "negative");
+    }
+  }
+
+  &.--small {
+    font-size: $font-size--small;
+  }
+
+  &.--large {
+    font-size: $font-size--large;
+  }
+
+  &.--valid {
+    @include swatch("border-color", "positive");
+  }
+
+  &.--invalid {
+    @include swatch("border-color", "negative");
+  }
+}
+
+input {
+  &[type="date"],
+  &[type="datetime"],
+  &[type="datetime-local"],
+  &[type="email"],
+  &[type="month"],
+  &[type="number"],
+  &[type="password"],
+  &[type="search"],
+  &[type="tel"],
+  &[type="text"],
+  &[type="time"],
+  &[type="url"],
+  &[type="week"] {
+    @extend %e_input;
+  }
+
+  &::placeholder {
+    color: rgba(black, 0.2);
+  }
+
+  &[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+  }
+
+  &[type="color"] {
+  }
+
+  &[type="file"] {
+  }
+
+  &[type="range"] {
+  }
+}
+
+textarea {
+  @extend %e_input;
+  overflow: auto;
+  resize: vertical;
+}
+
+select {
+  @extend %e_input;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0NzQ3NDciIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI2IDkgMTIgMTUgMTggOSI+PC9wb2x5bGluZT48L3N2Zz4=);
+  background-position: calc(100% - 1.5em);
+  background-repeat: no-repeat;
+  background-size: 1em;
+}

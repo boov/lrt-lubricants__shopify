@@ -1,0 +1,252 @@
+@use "sass:math";
+
+$l_flex--count: 12;
+$l_flex--gap--tight: 18px;
+$l_flex--gap--comfortable: 30px;
+$l_flex--gap--loose: 48px;
+
+.l_flex {
+  $this: &;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: -($l_flex--gap--comfortable * 0.5);
+  margin-right: -($l_flex--gap--comfortable * 0.5);
+
+  &.--tight {
+    margin-left: -($l_flex--gap--tight * 0.5);
+    margin-right: -($l_flex--gap--tight * 0.5);
+
+    > #{$this}__item {
+      padding-left: $l_flex--gap--tight * 0.5;
+      padding-right: $l_flex--gap--tight * 0.5;
+    }
+  }
+
+  &.--comfortable {
+    margin-left: -($l_flex--gap--comfortable * 0.5);
+    margin-right: -($l_flex--gap--comfortable * 0.5);
+
+    > #{$this}__item {
+      padding-left: $l_flex--gap--comfortable * 0.5;
+      padding-right: $l_flex--gap--comfortable * 0.5;
+    }
+  }
+
+  &.--loose {
+    margin-left: -($l_flex--gap--loose * 0.5);
+    margin-right: -($l_flex--gap--loose * 0.5);
+
+    > #{$this}__item {
+      padding-left: $l_flex--gap--loose * 0.5;
+      padding-right: $l_flex--gap--loose * 0.5;
+    }
+  }
+
+  &.--align-center {
+    align-items: center;
+  }
+
+  &.--align-end {
+    align-items: flex-end;
+  }
+
+  &.--align-start {
+    align-items: flex-start;
+  }
+
+  &.--justify-center {
+    justify-content: center;
+  }
+
+  &.--justify-end {
+    justify-content: flex-end;
+  }
+
+  &.--justify-start {
+    justify-content: flex-start;
+  }
+
+  &.--justify-around {
+    justify-content: space-around;
+  }
+
+  &.--justify-between {
+    justify-content: space-between;
+  }
+
+  &.--justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      &.--tight--#{$breakpoint-name} {
+        margin-left: -($l_flex--gap--tight * 0.5);
+        margin-right: -($l_flex--gap--tight * 0.5);
+
+        > #{$this}__item {
+          padding-left: $l_flex--gap--tight * 0.5;
+          padding-right: $l_flex--gap--tight * 0.5;
+        }
+      }
+
+      &.--comfortable--#{$breakpoint-name} {
+        margin-left: -($l_flex--gap--comfortable * 0.5);
+        margin-right: -($l_flex--gap--comfortable * 0.5);
+
+        > #{$this}__item {
+          padding-left: $l_flex--gap--comfortable * 0.5;
+          padding-right: $l_flex--gap--comfortable * 0.5;
+        }
+      }
+
+      &.--loose--#{$breakpoint-name} {
+        margin-left: -($l_flex--gap--loose * 0.5);
+        margin-right: -($l_flex--gap--loose * 0.5);
+
+        > #{$this}__item {
+          padding-left: $l_flex--gap--loose * 0.5;
+          padding-right: $l_flex--gap--loose * 0.5;
+        }
+      }
+
+      &.--align-center--#{$breakpoint-name} {
+        align-items: center;
+      }
+
+      &.--align-end--#{$breakpoint-name} {
+        align-items: flex-end;
+      }
+
+      &.--align-start--#{$breakpoint-name} {
+        align-items: flex-start;
+      }
+
+      &.--justify-center--#{$breakpoint-name} {
+        justify-content: center;
+      }
+
+      &.--justify-end--#{$breakpoint-name} {
+        justify-content: flex-end;
+      }
+
+      &.--justify-start--#{$breakpoint-name} {
+        justify-content: flex-start;
+      }
+
+      &.--justify-around--#{$breakpoint-name} {
+        justify-content: space-around;
+      }
+
+      &.--justify-between--#{$breakpoint-name} {
+        justify-content: space-between;
+      }
+
+      &.--justify-evenly--#{$breakpoint-name} {
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  &__item {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-height: 1px;
+    padding-left: $l_flex--gap--comfortable * 0.5;
+    padding-right: $l_flex--gap--comfortable * 0.5;
+
+    &.--shrink {
+      flex-basis: auto;
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+
+    &.--first {
+      order: -1;
+    }
+
+    &.--last {
+      order: $l_flex--count + 1;
+    }
+
+    &.--align-center {
+      align-self: center;
+    }
+
+    &.--align-end {
+      align-self: flex-end;
+    }
+
+    &.--align-start {
+      align-self: flex-start;
+    }
+
+    @for $column from 1 through $l_flex--count {
+      &.--span-#{$column} {
+        flex-basis: percentage(math.div($column, $l_flex--count));
+        max-width: percentage(math.div($column, $l_flex--count));
+        flex-grow: 0;
+      }
+    }
+
+    @for $column from 1 through $l_flex--count - 1 {
+      &.--offset-#{$column} {
+        margin-left: percentage(math.div($column, $l_flex--count));
+      }
+    }
+
+    @each $breakpoint-name, $breakpoint-size in $breakpoints {
+      @media (min-width: $breakpoint-size) {
+        &.--#{$breakpoint-name} {
+          flex-basis: 0;
+          flex-grow: 1;
+          flex-shrink: 0;
+        }
+
+        &.--shrink--#{$breakpoint-name} {
+          flex-basis: auto;
+          flex-grow: 0;
+          flex-shrink: 1;
+        }
+
+        &.--first--#{$breakpoint-name} {
+          order: -1;
+        }
+
+        &.--last--#{$breakpoint-name} {
+          order: $l_flex--count + 1;
+        }
+
+        &.--align-center--#{$breakpoint-name} {
+          align-self: center;
+        }
+
+        &.--align-end--#{$breakpoint-name} {
+          align-self: flex-end;
+        }
+
+        &.--align-start--#{$breakpoint-name} {
+          align-self: flex-start;
+        }
+
+        @for $column from 1 through $l_flex--count {
+          &.--span-#{$column}--#{$breakpoint-name} {
+            flex-basis: percentage(math.div($column, $l_flex--count));
+            max-width: percentage(math.div($column, $l_flex--count));
+            flex-grow: 0;
+          }
+        }
+
+        @for $column from 1 through $l_flex--count - 1 {
+          &.--offset-#{$column}--#{$breakpoint-name} {
+            margin-left: percentage(math.div($column, $l_flex--count));
+          }
+        }
+      }
+    }
+  }
+}

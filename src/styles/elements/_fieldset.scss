@@ -1,0 +1,13 @@
+fieldset {
+  border-radius: $border-radius;
+  // border: $border-width solid $swatch--border;
+  margin: 0 0 1em 0;
+  padding: 2em;
+
+  legend {
+    @include swatch("color", "copy--bold");
+    font-size: $font-size--large;
+    font-weight: $font-weight--bold;
+    padding: 0 0.5em;
+  }
+}

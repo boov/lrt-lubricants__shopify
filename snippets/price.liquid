@@ -71,8 +71,7 @@ show_badges %} price--show-badge{% endif -%} ">
             {{ "products.product.price.regular_price" | t }}
           </span>
           <span class="price-item price-item--regular">
-            {{- "products.product.volume_pricing.price_range"
-              | t: minimum: money_price_min, maximum: money_price_max -}}
+            {{- "products.product.volume_pricing.price_range" | t: minimum: money_price_min, maximum: money_price_max -}}
           </span>
         {%- else -%}
           <span class="visually-hidden visually-hidden--inline">
@@ -128,11 +127,11 @@ endif %}">
       </small>
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+      <span class="badge price__badge-sale">
         {{ "products.product.on_sale" | t }}
       </span>
 
-      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+      <span class="badge price__badge-sold-out">
         {{ "products.product.sold_out" | t }}
       </span>
     {%- endif -%}

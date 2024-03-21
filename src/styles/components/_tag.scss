@@ -1,0 +1,20 @@
+.c_tag {
+  @include swatch("background-color", "action");
+  border-radius: $border-radius;
+  color: white;
+  display: inline-block;
+  font-size: $font-size--small;
+  font-weight: $font-weight--bold;
+  line-height: 1;
+  padding: 0.4em 0.6em;
+
+  &:hover {
+    // background-color: lighten($swatch--action, 10%);
+    color: white;
+  }
+
+  &:focus {
+    // background-color: lighten($swatch--action, 10%);
+    color: white;
+  }
+}

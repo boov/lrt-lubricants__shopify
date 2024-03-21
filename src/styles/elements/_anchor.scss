@@ -1,0 +1,17 @@
+a {
+  @include swatch("color", "action");
+  text-decoration: none;
+  transition: color $duration ease-in-out;
+
+  &:hover {
+    @include swatch("color", "action--hover");
+  }
+
+  &:focus {
+    @include swatch("color", "action--focus");
+    outline-color: currentColor;
+    outline-offset: 0.25em;
+    outline-style: solid;
+    outline-width: $border-width;
+  }
+}

@@ -11,7 +11,7 @@
   endif
 -%}
 
-<div class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}" {{ block.shopify_attributes }}>
+<div class="utility-bar gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}" {{ block.shopify_attributes }}>
   <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social
 and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and
 social_icons %} utility-bar__grid--2-col{% endif %}">
@@ -19,11 +19,7 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
       {%- render "social-icons" -%}
     {%- endif -%}
     {%- if section.blocks.size == 1 -%}
-      <div
-        class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
-        role="region"
-        aria-label="{{ 'sections.header.announcement' | t }}"
-        {{ block.shopify_attributes }}>
+      <div class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
         {%- if section.blocks.first.settings.text != blank -%}
           {%- if section.blocks.first.settings.link != blank -%}
             <a href="{{ section.blocks.first.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
@@ -42,41 +38,15 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
         {%- endif -%}
       </div>
     {%- elsif section.blocks.size > 1 -%}
-      <slideshow-component
-        class="announcement-bar"
-        role="region"
-        aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
-        aria-label="{{ 'sections.announcements.announcement_bar' | t }}">
+      <slideshow-component class="announcement-bar" role="region" aria-roledescription="{{ 'sections.announcements.carousel' | t }}" aria-label="{{ 'sections.announcements.announcement_bar' | t }}">
         <div class="announcement-bar-slider slider-buttons">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'sections.announcements.previous_announcement' | t }}" aria-controls="Slider-{{ section.id }}">
             {% render "icon-caret" %}
           </button>
-          <div
-            class="grid grid--1-col slider slider--everywhere"
-            id="Slider-{{ section.id }}"
-            aria-live="polite"
-            aria-atomic="true"
-            data-autoplay="{{ section.settings.auto_rotate }}"
-            data-speed="{{ section.settings.change_slides_speed }}">
+          <div class="grid grid--1-col slider slider--everywhere" id="Slider-{{ section.id }}" aria-live="polite" aria-atomic="true" data-autoplay="{{ section.settings.auto_rotate }}" data-speed="{{ section.settings.change_slides_speed }}">
             {%- for block in section.blocks -%}
-              <div
-                class="slideshow__slide slider__slide grid__item grid--1-col"
-                id="Slide-{{ section.id }}-{{ forloop.index }}"
-                {{ block.shopify_attributes }}
-                role="group"
-                aria-roledescription="{{ 'sections.announcements.announcement' | t }}"
-                aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-                tabindex="-1">
-                <div
-                  class="announcement-bar__announcement"
-                  role="region"
-                  aria-label="{{ 'sections.header.announcement' | t }}"
-                  {{ block.shopify_attributes }}>
+              <div class="slideshow__slide slider__slide grid__item grid--1-col" id="Slide-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }} role="group" aria-roledescription="{{ 'sections.announcements.announcement' | t }}" aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" tabindex="-1">
+                <div class="announcement-bar__announcement" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
                   {%- if block.settings.text != blank -%}
                     {%- if block.settings.link != blank -%}
                       <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
@@ -97,12 +67,7 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
               </div>
             {%- endfor -%}
           </div>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'sections.announcements.next_announcement' | t }}"
-            aria-controls="Slider-{{ section.id }}">
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'sections.announcements.next_announcement' | t }}" aria-controls="Slider-{{ section.id }}">
             {% render "icon-caret" %}
           </button>
         </div>
@@ -118,8 +83,7 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
       {%- endif -%}
     {%- endif -%}
     <div class="localization-wrapper">
-      {%- if section.settings.enable_country_selector
-        and localization.available_countries.size > 1 -%}
+      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
         <localization-form class="small-hide medium-hide">
           {%- form 'localization'
             , id: 'AnnouncementCountryForm'
@@ -135,8 +99,7 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
         </localization-form>
       {% endif %}
 
-      {%- if section.settings.enable_language_selector
-        and localization.available_languages.size > 1 -%}
+      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
         <localization-form class="small-hide medium-hide">
           {%- form 'localization'
             , id: 'AnnouncementLanguageForm'
@@ -164,12 +127,6 @@ social_icons %} utility-bar__grid--2-col{% endif %}">
       "groups": ["header"]
     },
     "settings": [
-      {
-        "type": "color_scheme",
-        "id": "color_scheme",
-        "label": "t:sections.all.colors.label",
-        "default": "scheme-4"
-      },
       {
         "type": "checkbox",
         "id": "show_line_separator",

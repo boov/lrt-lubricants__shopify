@@ -1,0 +1,23 @@
+.c_banner {
+  @include swatch("background-color", "background");
+  @include swatch("color", "copy");
+  padding: spacer(3) 0;
+
+  @include breakpoint("sm") {
+    padding: spacer(4) 0;
+  }
+
+  &__phone {
+    margin: 0;
+    font-size: $font-size--small;
+    line-height: $line-height--snug;
+
+    a {
+      @include swatch("color", "copy--bold");
+      font-family: $font-family--display;
+      font-weight: $font-weight--bold;
+      font-size: rem-scale(1);
+      display: block;
+    }
+  }
+}

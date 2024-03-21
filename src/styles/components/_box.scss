@@ -1,0 +1,30 @@
+.c_box {
+  @include swatch("background-color", "background--highlight");
+  @include swatch("color", "copy");
+  border-radius: $border-radius;
+  box-shadow: $shadow;
+  padding: spacer(3);
+  position: relative;
+  overflow: hidden;
+
+  @include breakpoint("md") {
+    padding: spacer(4);
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    @include swatch("background-color", "brand");
+    content: "";
+    display: block;
+    height: 50px;
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    transform-origin: center;
+    transform: rotate(45deg);
+    width: 50px;
+  }
+}

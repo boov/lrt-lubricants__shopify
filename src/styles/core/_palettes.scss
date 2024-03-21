@@ -1,0 +1,115 @@
+// global
+$s_global--negative: #cc4033;
+$s_global--positive: #569400;
+$s_global--brand: #44bc21;
+$s_global--action: $s_global--brand;
+
+// default
+$s_default--background: #f7f7f7;
+$s_default--copy: #333333;
+$s_default--border: #ededed;
+$s_default--action: $s_global--action;
+
+// invert
+$s_invert--background: $s_default--copy;
+$s_invert--copy: white;
+$s_invert--border: #434343;
+$s_invert--action: $s_global--action;
+
+// action
+$s_action--background: $s_global--action;
+$s_action--copy: white;
+$s_action--border: mix(black, $s_action--background, 20%);
+$s_action--action: white;
+
+// brand
+$s_brand--background: $s_global--brand;
+$s_brand--copy: white;
+$s_brand--border: mix(black, $s_brand--background, 20%);
+$s_brand--action: white;
+
+$palettes: (
+  "default": (
+    "brand": $s_global--brand,
+    "action": $s_default--action,
+    "action--hover": mix(black, $s_default--action, 8%),
+    "action--focus": mix(black, $s_default--action, 16%),
+    "background": $s_default--background,
+    "background--highlight": white,
+    "background--lowlight": mix(black, $s_default--background, 3%),
+    "border": $s_default--border,
+    "button--background": $s_default--action,
+    "button--border": $s_default--action,
+    "button--label": white,
+    "button--hover--background": mix(black, $s_default--action, 8%),
+    "button--hover--border": mix(black, $s_default--action, 8%),
+    "button--hover--label": white,
+    "button--focus--background": mix(black, $s_default--action, 16%),
+    "button--focus--border": mix(black, $s_default--action, 16%),
+    "button--focus--label": white,
+    "copy": mix($s_default--copy, $s_default--background, 85%),
+    "copy--bold": $s_default--copy,
+    "copy--light": mix($s_default--copy, $s_default--background, 65%),
+    "negative": $s_global--negative,
+    "positive": $s_global--positive
+  ),
+  "invert": (
+    "background": $s_invert--background,
+    "background--highlight": mix(white, $s_invert--background, 5%),
+    "background--lowlight": mix(black, $s_invert--background, 5%),
+    "border": $s_invert--border,
+    "copy": mix($s_invert--copy, $s_invert--background, 75%),
+    "copy--bold": $s_invert--copy,
+    "copy--light": mix($s_invert--copy, $s_invert--background, 50%)
+  ),
+  "action": (
+    "action": $s_action--action,
+    "action--hover": mix($s_action--background, $s_action--action, 8%),
+    "action--focus": mix($s_action--background, $s_action--action, 16%),
+    "background": $s_action--background,
+    "background--highlight": mix(white, $s_action--background, 5%),
+    "background--lowlight": mix(black, $s_action--background, 5%),
+    "border": $s_action--border,
+    "button--background": white,
+    "button--border": white,
+    "button--label": $s_default--copy,
+    "button--hover--background": mix(white, $s_action--background, 90%),
+    "button--hover--border": mix(white, $s_action--background, 90%),
+    "button--hover--label": $s_default--copy,
+    "button--focus--background": mix(white, $s_action--background, 80%),
+    "button--focus--border": mix(white, $s_action--background, 80%),
+    "button--focus--label": $s_default--copy,
+    "copy": mix(white, $s_action--background, 85%),
+    "copy--bold": $s_action--copy,
+    "copy--light": mix(white, $s_action--background, 30%)
+  ),
+  "brand": (
+    "action": $s_brand--action,
+    "action--hover": mix($s_brand--background, $s_brand--action, 8%),
+    "action--focus": mix($s_brand--background, $s_brand--action, 16%),
+    "background": $s_brand--background,
+    "background--highlight": mix(white, $s_brand--background, 5%),
+    "background--lowlight": mix(black, $s_brand--background, 5%),
+    "border": $s_brand--border,
+    "button--background": white,
+    "button--border": white,
+    "button--label": $s_default--copy,
+    "button--hover--background": mix(white, $s_brand--background, 90%),
+    "button--hover--border": mix(white, $s_brand--background, 90%),
+    "button--hover--label": $s_default--copy,
+    "button--focus--background": mix(white, $s_brand--background, 80%),
+    "button--focus--border": mix(white, $s_brand--background, 80%),
+    "button--focus--label": $s_default--copy,
+    "copy": mix(white, $s_brand--background, 85%),
+    "copy--bold": $s_brand--copy,
+    "copy--light": mix(white, $s_brand--background, 65%)
+  )
+);
+
+@each $label, $palette in $palettes {
+  .\~\~#{$label} {
+    @each $variable, $color in $palette {
+      --#{$variable}: #{$color};
+    }
+  }
+}

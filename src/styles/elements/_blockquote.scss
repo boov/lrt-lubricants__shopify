@@ -1,0 +1,31 @@
+blockquote {
+  margin: spacer(4) 0;
+  padding-left: spacer(4);
+  // position: relative;
+  @include swatch("border-color", "border");
+  border-width: 0 0 0 $border-width;
+  border-style: solid;
+
+  &:before {
+    // @include swatch("color", "brand");
+    // content: "\0201C";
+    // font-family: sans-serif;
+    // font-size: rem-scale(8);
+    // left: 0;
+    // position: absolute;
+    // top: 0;
+  }
+
+  p {
+    @include swatch("color", "copy--bold");
+    font-size: rem-scale(2);
+    font-weight: $font-weight--light;
+    margin: 0 0 0.75em 0;
+  }
+
+  cite {
+    @include swatch("color", "copy--light");
+    display: block;
+    font-size: $font-size--small;
+  }
+}

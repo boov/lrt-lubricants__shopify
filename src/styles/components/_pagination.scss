@@ -1,0 +1,36 @@
+.c_pagination {
+  @include swatch("background-color", "background--highlight");
+  @include swatch("color", "copy--light");
+  font-size: $font-size--small;
+  box-shadow: $shadow;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    &.--forward {
+      margin-left: auto;
+    }
+
+    &.--back {
+      margin-right: auto;
+    }
+  }
+
+  &__link {
+    align-items: center;
+    display: flex;
+    height: 3.5em;
+    justify-content: center;
+    min-width: 3.5em;
+
+    &.--active {
+      @include swatch("color", "copy--bold");
+      font-weight: $font-weight--bold;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include swatch("color", "copy--bold");
+  font-family: $font-family--display;
+  font-weight: $font-weight--bold;
+  line-height: $line-height--tight;
+  margin: 0 0 1em 0;
+  text-transform: uppercase;
+
+  &.--smallcaps {
+    display: block;
+    font-size: rem-scale(-1);
+    font-weight: $font-weight--medium;
+    letter-spacing: 0.2em;
+    line-height: $line-height;
+    text-transform: uppercase;
+  }
+
+  &.--underline {
+    margin-bottom: 0.75em;
+    padding-bottom: calc(0.75em + #{$border-width});
+    position: relative;
+
+    &:after {
+      @include swatch("background-color", "border");
+      bottom: 0;
+      content: "";
+      height: $border-width;
+      left: 0;
+      position: absolute;
+      width: 1.5em;
+    }
+  }
+
+  &.--h0 {
+    @include breakpoint("lg") {
+      font-size: rem-scale(7);
+    }
+  }
+
+  &.--h1 {
+    font-size: rem-scale(5);
+
+    @include breakpoint("md") {
+      font-size: rem-scale(6);
+    }
+  }
+
+  &.--h2 {
+    font-size: rem-scale(5);
+  }
+
+  &.--h3 {
+    font-size: rem-scale(4);
+  }
+
+  &.--h4 {
+    font-size: rem-scale(3);
+  }
+
+  &.--h5 {
+    font-size: rem-scale(2);
+  }
+
+  &.--h6 {
+    font-size: rem-scale(1);
+  }
+
+  &.--h7 {
+    font-size: rem-scale(0);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+h1 {
+  font-size: rem-scale(5);
+
+  @include breakpoint("md") {
+    font-size: rem-scale(6);
+  }
+}
+
+h2 {
+  font-size: rem-scale(5);
+}
+
+h3 {
+  font-size: rem-scale(4);
+}
+
+h4 {
+  font-size: rem-scale(3);
+}
+
+h5 {
+  font-size: rem-scale(2);
+}
+
+h6 {
+  font-size: rem-scale(1);
+}

@@ -1,0 +1,125 @@
+%e_button {
+  @include swatch("background-color", "button--background");
+  @include swatch("border-color", "button--border");
+  @include swatch("color", "button--label");
+  align-items: center;
+  appearance: none;
+  border-radius: $border-radius--round;
+  border-style: solid;
+  border-width: $border-width;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $font-family--display;
+  font-size: $font-size--small;
+  font-weight: $font-weight--bold;
+  gap: 0.8em;
+  line-height: $line-height--snug;
+  padding: 1em 2em;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition:
+    border-color $duration ease-in-out,
+    background-color $duration ease-in-out;
+
+  &:hover {
+    @include swatch("background-color", "button--hover--background");
+    @include swatch("border-color", "button--hover--border");
+    @include swatch("color", "button--hover--label");
+  }
+
+  &:focus {
+    @include swatch("background-color", "button--focus--background");
+    @include swatch("border-color", "button--focus--border");
+    @include swatch("color", "button--focus--label");
+    outline: none;
+  }
+
+  &.--positive {
+    @include swatch("background-color", "positive");
+    @include swatch("border-color", "positive");
+
+    &.--outline {
+      @include swatch("color", "positive");
+    }
+  }
+
+  &.--negative {
+    @include swatch("background-color", "negative");
+    @include swatch("border-color", "negative");
+
+    &.--outline {
+      @include swatch("color", "negative");
+    }
+  }
+
+  &.--square {
+    border-radius: $border-radius;
+  }
+
+  &.--icon {
+    justify-content: center;
+    padding: 1em;
+  }
+
+  &.--expand {
+    width: 100%;
+  }
+
+  &.--small {
+    font-size: $font-size--tiny;
+  }
+
+  &.--large {
+    font-size: $font-size;
+  }
+
+  &.--outline {
+    @include swatch("color", "button--border");
+    background-color: transparent;
+  }
+
+  &.--text {
+    @include swatch("color", "action");
+    background-color: transparent;
+    border-radius: unset;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      background-color: transparent;
+      border: none;
+      @include swatch("color", "action--hover");
+    }
+
+    &:focus {
+      @include swatch("color", "action--focus");
+      background-color: transparent;
+      border: none;
+      outline-color: currentColor;
+      outline-offset: 0.25em;
+      outline-style: solid;
+      outline-width: $border-width;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  svg {
+    flex-shrink: 0;
+    height: 1em;
+    stroke-width: 3;
+    width: 1em;
+  }
+}
+
+.e_button,
+button,
+input[type="reset"],
+input[type="submit"] {
+  @extend %e_button;
+}

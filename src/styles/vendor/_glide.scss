@@ -1,0 +1,80 @@
+@use "sass:math";
+
+.glide {
+  $this: &;
+
+  &.--carousel {
+    // background-color: $swatch--white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+
+    #{$this}__track {
+      border-radius: $border-radius $border-radius 0 0;
+      transition: height $duration ease-in-out;
+    }
+
+    #{$this}__slides {
+      align-items: stretch;
+      margin-bottom: 0;
+    }
+
+    #{$this}__slide {
+      height: auto;
+    }
+
+    #{$this}__arrows {
+      border-radius: 0 0 $border-radius $border-radius;
+      // background-color: $swatch--white;
+      display: flex;
+      justify-content: space-evenly;
+      padding: 8px 0;
+    }
+
+    #{$this}__arrow {
+      align-items: center;
+      // color: $swatch--emphasis;
+      cursor: pointer;
+      display: flex;
+      height: 32px;
+      justify-content: center;
+      width: 32px;
+
+      &:hover,
+      &:focus {
+        // color: $swatch--emphasis;
+        outline: none;
+      }
+
+      svg {
+        display: block;
+        height: percentage(math.div(2, 3));
+        width: percentage(math.div(2, 3));
+      }
+    }
+  }
+
+  &.--marquee {
+    #{$this}__slides {
+      margin-bottom: 0;
+      align-items: center;
+    }
+
+    #{$this}__slide {
+      padding: 0 15px;
+
+      @media (min-width: map-get($breakpoints, sm)) {
+        padding: 0 20px;
+      }
+
+      @media (min-width: map-get($breakpoints, md)) {
+        padding: 0 30px;
+      }
+
+      img {
+        display: block;
+        max-height: 70px;
+        margin: auto;
+      }
+    }
+  }
+}

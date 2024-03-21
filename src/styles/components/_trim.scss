@@ -1,0 +1,29 @@
+.c_trim {
+  @include swatch("background-color", "background");
+  @include swatch("color", "copy");
+  font-size: $font-size--tiny;
+  padding: calc(#{spacer(4)} + #{$border-width}) 0 spacer(4) 0;
+  position: relative;
+
+  &:before {
+    @include swatch("background-color", "border");
+    content: "";
+    display: block;
+    height: $border-width;
+    left: 50%;
+    max-width: map-get($breakpoints, xxl);
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+
+    @include breakpoint("xxl") {
+      border-radius: $border-radius;
+    }
+  }
+
+  @include breakpoint("sm") {
+    padding: spacer(5) 0;
+  }
+}

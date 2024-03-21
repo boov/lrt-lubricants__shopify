@@ -3,12 +3,7 @@
     <div id="cart-notification-product-{{ item.key }}" class="cart-item">
       {%- if item.image -%}
         <div class="cart-notification-product__image global-media-settings">
-          <img
-            src="{{ item.image | image_url: width: 140 }}"
-            alt="{{ item.image.alt | escape }}"
-            width="70"
-            height="{{ 70 | divided_by: item.image.aspect_ratio | ceil }}"
-            loading="lazy">
+          <img src="{{ item.image | image_url: width: 140 }}" alt="{{ item.image.alt | escape }}" width="70" height="{{ 70 | divided_by: item.image.aspect_ratio | ceil }}" loading="lazy">
         </div>
       {%- endif -%}
       <div>
@@ -42,10 +37,7 @@
                 </dt>
                 <dd>
                   {%- if property.last contains '/uploads/' -%}
-                    <a
-                      href="{{ property.last }}"
-                      class="link"
-                      target="_blank">
+                    <a href="{{ property.last }}" class="link" target="_blank">
                       {{ property.last | split: "/" | last }}
                     </a>
                   {%- else -%}

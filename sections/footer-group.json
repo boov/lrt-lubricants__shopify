@@ -29,7 +29,6 @@
       },
       "block_order": ["footer-0", "footer-1", "footer-2"],
       "settings": {
-        "color_scheme": "scheme-1",
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
         "show_social": true,

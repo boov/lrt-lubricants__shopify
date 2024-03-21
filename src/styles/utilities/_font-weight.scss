@@ -1,0 +1,21 @@
+$u_font-weight--utilities: (
+  default: $font-weight,
+  bold: $font-weight--bold,
+  light: $font-weight--light
+);
+
+@each $utility-key, $utility-value in $u_font-weight--utilities {
+  .u_font-weight--#{$utility-key} {
+    font-weight: $utility-value !important;
+  }
+}
+
+@each $utility-key, $utility-value in $u_font-weight--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_font-weight--#{$utility-key}--#{$breakpoint-name} {
+        font-weight: $utility-value !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.c_trim-navigation {
+  &__menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    + li {
+      margin-left: spacer(2);
+    }
+  }
+
+  &__link {
+    @include swatch("color", "copy--bold");
+    font-weight: $font-weight--bold;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      // color: $swatch--action;
+    }
+  }
+}

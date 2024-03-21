@@ -1,0 +1,31 @@
+.c_widget {
+  padding: spacer(3);
+  background-color: #eee;
+  font-size: rem-scale(-1);
+
+  &__header {
+    @include swatch("color", "copy--bold");
+    // background-color: mix(white, red);
+    font-weight: $font-weight--bold;
+    padding: spacer(3);
+  }
+
+  &__content {
+    font-size: $font-size--small;
+    overflow: hidden;
+    padding: spacer(3);
+    position: relative;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    &.--flat {
+      padding: 0;
+    }
+
+    h6 {
+      font-size: inherit;
+    }
+  }
+}

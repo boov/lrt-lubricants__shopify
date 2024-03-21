@@ -1,0 +1,13 @@
+label {
+  @include swatch("color", "copy--bold");
+  display: block;
+  font-weight: $font-weight--bold;
+  margin: 0 0 0.5em 0;
+
+  span {
+    @include swatch("color", "copy--light");
+    font-size: em-scale(-1);
+    font-weight: lighter;
+    margin-left: 0.75em;
+  }
+}

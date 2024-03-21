@@ -1,0 +1,17 @@
+$u_text-transform--utilities: (none, capitalize, lowercase, uppercase);
+
+@each $utility-value in $u_text-transform--utilities {
+  .u_text-transform--#{$utility-value} {
+    text-transform: $utility-value !important;
+  }
+}
+
+@each $utility-value in $u_text-transform--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_text-transform--#{$utility-value}--#{$breakpoint-name} {
+        text-transform: $utility-value !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+$u_margin--utilities: (
+  auto: auto,
+  double: 2em,
+  half: 0.5em,
+  none: 0,
+  s1: spacer(1),
+  s2: spacer(2),
+  s3: spacer(3),
+  s4: spacer(4),
+  s5: spacer(5),
+  s6: spacer(6),
+  s7: spacer(7)
+);
+
+@each $utility-key, $utility-value in $u_margin--utilities {
+  .u_margin--#{$utility-key} {
+    margin: $utility-value !important;
+  }
+
+  .u_margin-x--#{$utility-key} {
+    margin-left: $utility-value !important;
+    margin-right: $utility-value !important;
+  }
+
+  .u_margin-y--#{$utility-key} {
+    margin-bottom: $utility-value !important;
+    margin-top: $utility-value !important;
+  }
+
+  .u_margin-top--#{$utility-key} {
+    margin-top: $utility-value !important;
+  }
+
+  .u_margin-right--#{$utility-key} {
+    margin-right: $utility-value !important;
+  }
+
+  .u_margin-bottom--#{$utility-key} {
+    margin-bottom: $utility-value !important;
+  }
+
+  .u_margin-left--#{$utility-key} {
+    margin-left: $utility-value !important;
+  }
+}
+
+@each $utility-key, $utility-value in $u_margin--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_margin--#{$utility-key}--#{$breakpoint-name} {
+        margin: $utility-value !important;
+      }
+
+      .u_margin-x--#{$utility-key}--#{$breakpoint-name} {
+        margin-left: $utility-value !important;
+        margin-right: $utility-value !important;
+      }
+
+      .u_margin-y--#{$utility-key}--#{$breakpoint-name} {
+        margin-bottom: $utility-value !important;
+        margin-top: $utility-value !important;
+      }
+
+      .u_margin-top--#{$utility-key}--#{$breakpoint-name} {
+        margin-top: $utility-value !important;
+      }
+
+      .u_margin-right--#{$utility-key}--#{$breakpoint-name} {
+        margin-right: $utility-value !important;
+      }
+
+      .u_margin-bottom--#{$utility-key}--#{$breakpoint-name} {
+        margin-bottom: $utility-value !important;
+      }
+
+      .u_margin-left--#{$utility-key}--#{$breakpoint-name} {
+        margin-left: $utility-value !important;
+      }
+    }
+  }
+}

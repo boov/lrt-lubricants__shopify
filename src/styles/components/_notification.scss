@@ -1,0 +1,57 @@
+.c_notification {
+  // background-color: $swatch--brand;
+  border-radius: $border-radius;
+  // color: mix($swatch--brand, white, 15%);
+  display: flex;
+  font-size: $font-size;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+
+  &.--positive {
+    background-color: $s_global--positive;
+    color: mix($s_global--positive, white, 15%);
+  }
+
+  &.--negative {
+    background-color: $s_global--negative;
+    color: mix($s_global--negative, white, 15%);
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: 1.5em;
+  }
+
+  &__link {
+    color: white;
+    border-bottom: 1px dashed;
+
+    &:hover {
+      color: white;
+    }
+
+    &:focus {
+      color: white;
+    }
+  }
+
+  &__close {
+    align-items: center;
+    background-color: rgba(black, 0.05);
+    color: white;
+    display: flex;
+    font-weight: $font-weight--bold;
+    justify-content: center;
+    padding: 1.5em;
+
+    &:hover {
+      background-color: rgba(black, 0.1);
+      color: white;
+    }
+
+    &:focus {
+      background-color: rgba(black, 0.2);
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.c_feather-icon {
+  fill: none;
+  height: 24px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  stroke: currentColor;
+  width: 24px;
+
+  &.--sm {
+    height: 18px;
+    stroke-width: 2.25;
+    width: 18px;
+  }
+
+  &.--md {
+    height: 32px;
+    width: 32px;
+  }
+
+  &.--lg {
+    height: 48px;
+    width: 48px;
+  }
+
+  &.--xl {
+    height: 96px;
+    stroke-width: 1.5;
+    width: 96px;
+  }
+}

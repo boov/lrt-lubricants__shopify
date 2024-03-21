@@ -1,0 +1,65 @@
+.c_band {
+  @include swatch("background-color", "background");
+  @include swatch("color", "copy");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-gap: spacer(4);
+  grid-template-columns: 1fr;
+  margin: auto 0;
+  padding: spacer(4) 0;
+
+  @include breakpoint("sm") {
+    grid-gap: spacer(5);
+    padding: spacer(5) 0;
+  }
+
+  @include breakpoint("lg") {
+    grid-gap: spacer(6);
+    padding: spacer(6) 0;
+  }
+
+  &.--highlight {
+    @include swatch("background-color", "background--highlight");
+  }
+
+  &.--lowlight {
+    @include swatch("background-color", "background--lowlight");
+  }
+
+  &.--spacious {
+    padding: spacer(5) 0;
+
+    @include breakpoint("sm") {
+      padding: spacer(6) 0;
+    }
+
+    @include breakpoint("lg") {
+      padding: spacer(7) 0;
+    }
+  }
+
+  &.--tight {
+    @include breakpoint("sm") {
+      padding: spacer(4) 0;
+    }
+
+    @include breakpoint("lg") {
+      padding: spacer(5) 0;
+    }
+  }
+
+  &.--collapse-top {
+    padding-top: 0;
+  }
+
+  &.--collapse-bottom {
+    padding-bottom: 0;
+  }
+
+  &.--collapse {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

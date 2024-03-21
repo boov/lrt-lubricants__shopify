@@ -1,0 +1,40 @@
+.c_lightbox {
+  background-color: rgba(black, 0.8);
+  bottom: 0;
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  &__window {
+    margin: auto;
+    padding: 20px;
+    position: relative;
+  }
+
+  &__close {
+    background-color: rgba(black, 0.2);
+    border-radius: 0 0 $border-radius $border-radius;
+    color: white;
+    cursor: pointer;
+    font-weight: $font-weight--bold;
+    line-height: 1em;
+    padding: 0.3em 1em;
+    position: absolute;
+    right: 40px;
+    top: 20px;
+
+    &:after {
+      content: "\00d7";
+    }
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -12,12 +12,8 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ product.id }}">
+<div class="gradient">
+  <product-recommendations class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}" data-section-id="{{ section.id }}" data-product-id="{{ product.id }}">
     {% if recommendations.performed and recommendations.products_count > 0 %}
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
@@ -95,13 +91,6 @@
         "step": 1,
         "default": 4,
         "label": "t:sections.related-products.settings.columns_desktop.label"
-      },
-      {
-        "type": "color_scheme",
-        "id": "color_scheme",
-        "label": "t:sections.all.colors.label",
-        "info": "t:sections.all.colors.has_cards_info",
-        "default": "scheme-1"
       },
       {
         "type": "header",

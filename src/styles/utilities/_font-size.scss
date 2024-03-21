@@ -1,0 +1,22 @@
+$u_font-size--utilities: (
+  default: $font-size,
+  tiny: $font-size--tiny,
+  small: $font-size--small,
+  large: $font-size--large
+);
+
+@each $utility-key, $utility-value in $u_font-size--utilities {
+  .u_font-size--#{$utility-key} {
+    font-size: $utility-value !important;
+  }
+}
+
+@each $utility-key, $utility-value in $u_font-size--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_font-size--#{$utility-key}--#{$breakpoint-name} {
+        font-size: $utility-value !important;
+      }
+    }
+  }
+}

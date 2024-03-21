@@ -8,18 +8,10 @@
   },
   "format": {
     "ignore": [],
-    "wrap": 120,
+    "wrap": 1200,
     "indentSize": 2,
     "preserveLine": 1,
     "endNewline": true,
-    "liquid": {
-      "indentAttribute": false,
-      "lineBreakSeparator": "before",
-      "normalizeSpacing": true,
-      "quoteConvert": "double",
-      "ignoreTagList": [],
-      "preserveInternal": true
-    },
     "markup": {
       "quoteConvert": "double",
       "selfCloseSpace": true,
@@ -31,7 +23,7 @@
       "ignoreJS": true,
       "ignoreCSS": false,
       "ignoreJSON": false,
-      "forceAttribute": 3
+      "forceAttribute": false
     },
     "json": {
       "bracePadding": false,

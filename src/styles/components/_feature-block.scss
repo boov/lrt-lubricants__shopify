@@ -1,0 +1,30 @@
+.c_feature-block {
+  display: flex;
+  flex-direction: column;
+
+  &__icon {
+    // color: $swatch--action;
+    flex-shrink: 0;
+    height: 48px;
+    margin-bottom: 1.5em;
+    stroke-width: 1;
+    width: 48px;
+  }
+
+  &__content {
+    font-size: $font-size--small;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    font-size: rem-scale(1);
+    margin-bottom: 0.75em;
+
+    @include breakpoint("lg") {
+      font-size: rem-scale(2);
+    }
+  }
+}

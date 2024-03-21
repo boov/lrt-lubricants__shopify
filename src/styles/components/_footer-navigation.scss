@@ -1,0 +1,39 @@
+.c_footer-navigation {
+  @include swatch("color", "action");
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 spacer(4) 0;
+
+    @include breakpoint("sm") {
+      margin: 0;
+    }
+  }
+
+  &__item {
+    margin-bottom: 0.5em;
+  }
+
+  &__link {
+    @include swatch("color", "copy");
+    font-weight: $font-weight;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:before {
+      @include swatch("color", "action");
+      content: "\2022";
+      margin-right: 0.75em;
+    }
+
+    &:focus,
+    &:hover {
+      color: inherit;
+    }
+
+    &.--highlight {
+      @include swatch("color", "action");
+    }
+  }
+}

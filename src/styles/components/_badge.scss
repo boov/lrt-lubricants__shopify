@@ -1,0 +1,20 @@
+.c_badge {
+  @include swatch("background-color", "action");
+  border-radius: $border-radius;
+  color: white;
+  display: inline-block;
+  font-size: 50%;
+  font-weight: $font-weight;
+  line-height: 1;
+  padding: 0.4em 0.6em;
+
+  &:hover {
+    // background-color: lighten($swatch--action, 10%);
+    color: white;
+  }
+
+  &:focus {
+    // background-color: lighten($swatch--action, 10%);
+    color: white;
+  }
+}

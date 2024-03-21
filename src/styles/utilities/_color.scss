@@ -1,0 +1,22 @@
+$u_color--utilities: (
+  action: $s_global--action,
+  brand: $s_global--brand,
+  negative: $s_global--negative,
+  positive: $s_global--positive
+);
+
+@each $utility-key, $utility-value in $u_color--utilities {
+  .u_color--#{$utility-key} {
+    color: $utility-value !important;
+  }
+}
+
+@each $utility-key, $utility-value in $u_color--utilities {
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      .u_color--#{$utility-key}--#{$breakpoint-name} {
+        color: $utility-value !important;
+      }
+    }
+  }
+}

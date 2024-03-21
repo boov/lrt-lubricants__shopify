@@ -1,0 +1,21 @@
+.c_input-group {
+  margin: 0 0 1.5em 0;
+
+  &.--actions {
+    margin: 2em 0 0 0;
+  }
+
+  &.--special {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 200%;
+    z-index: -1;
+  }
+
+  p {
+    @include swatch("color", "copy--light");
+    font-size: $font-size--tiny;
+    margin: 1em 0 0 0;
+  }
+}

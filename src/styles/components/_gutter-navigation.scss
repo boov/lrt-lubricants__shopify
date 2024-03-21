@@ -1,0 +1,44 @@
+.c_gutter-navigation {
+  margin: auto 0;
+
+  &__menu {
+    @include swatch("color", "copy--bold");
+    font-size: rem-scale(1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.--highlight {
+      > a {
+        @include swatch("color", "action");
+      }
+    }
+  }
+
+  &__link {
+    color: inherit;
+    display: block;
+    font-family: $font-family--display;
+    font-weight: $font-weight;
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      transform $duration--fast ease-in-out,
+      color $duration--fast ease-in-out;
+
+    &:focus,
+    &:hover {
+      @include swatch("color", "action");
+      outline: none;
+    }
+  }
+}

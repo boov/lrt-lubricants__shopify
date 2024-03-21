@@ -1,0 +1,22 @@
+p {
+  margin: 0 0 1.5em 0;
+
+  &.--lead {
+    font-size: $font-size--large;
+    font-weight: $font-weight--light;
+  }
+
+  &.--smallprint {
+    @include swatch("color", "copy--light");
+    font-size: $font-size--tiny;
+    font-weight: $font-weight--light;
+  }
+
+  &.--smallcaps {
+    @include swatch("color", "copy--light");
+    font-size: $font-size--small;
+    font-weight: $font-weight--light;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}

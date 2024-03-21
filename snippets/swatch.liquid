@@ -22,10 +22,4 @@
   endif
 -%}
 
-<span
-  {% if swatch_value %}
-  class="swatch{% if shape == 'square' %} swatch--square{% endif %}"
-  style="--swatch--background: {{ swatch_value }};{% if swatch_focal_point %} --swatch-focal-point: {{ swatch_focal_point }};{% endif %}"
-  {% else %}
-  class="swatch swatch--unavailable{% if shape == 'square' %} swatch--square{% endif %}"
-  {% endif %}></span>
+<span {% if swatch_value %} class="swatch{% if shape == 'square' %} swatch--square{% endif %}" style="--swatch--background: {{ swatch_value }};{% if swatch_focal_point %} --swatch-focal-point: {{ swatch_focal_point }};{% endif %}" {% else %} class="swatch swatch--unavailable{% if shape == 'square' %} swatch--square{% endif %}" {% endif %}></span>

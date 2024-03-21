@@ -1,0 +1,58 @@
+.c_content {
+  &.--columns {
+    column-gap: 2em;
+    columns: 32ch;
+    margin: 0 0 1em 0;
+
+    p {
+      break-inside: avoid;
+    }
+  }
+
+  p:first-child {
+    font-size: $font-size--large;
+    font-weight: $font-weight--light;
+  }
+
+  p,
+  ul,
+  ol {
+    + {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 1.5em;
+
+        @include breakpoint("md") {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+
+  img {
+    margin: 0 auto;
+  }
+
+  ol,
+  ul {
+    margin: 1.5em 0;
+    padding: 0 0 0 1.2em;
+
+    li {
+      padding-left: 0.5em;
+    }
+
+    ol,
+    ul {
+      margin: 0.5em 0;
+    }
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,53 @@
+$l_grid--count: 12;
+$l_grid--gap--loose: 72px;
+$l_grid--gap--comfortable: 36px;
+$l_grid--gap--tight: 18px;
+
+.l_grid {
+  display: grid;
+  grid-gap: $l_grid--gap--comfortable;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+
+  &.--tight {
+    grid-gap: $l_grid--gap--tight;
+  }
+
+  &.--comfortable {
+    grid-gap: $l_grid--gap--comfortable;
+  }
+
+  &.--loose {
+    grid-gap: $l_grid--gap--loose;
+  }
+
+  @for $column from 1 through $l_grid--count {
+    &.--columns-#{$column} {
+      grid-template-columns: repeat($column, minmax(0, 1fr));
+    }
+  }
+
+  @each $breakpoint-name, $breakpoint-size in $breakpoints {
+    @media (min-width: $breakpoint-size) {
+      &.--tight--#{$breakpoint-name} {
+        grid-gap: $l_grid--gap--tight;
+      }
+
+      &.--comfortable--#{$breakpoint-name} {
+        grid-gap: $l_grid--gap--comfortable;
+      }
+
+      &.--loose--#{$breakpoint-name} {
+        grid-gap: $l_grid--gap--loose;
+      }
+
+      @for $column from 1 through $l_grid--count {
+        &.--columns-#{$column}--#{$breakpoint-name} {
+          grid-template-columns: repeat($column, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+}

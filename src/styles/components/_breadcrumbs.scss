@@ -1,0 +1,28 @@
+.c_breadcrumbs {
+  font-size: $font-size--small;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+
+    &:after {
+      @include swatch("color", "brand");
+      content: "\203A";
+      margin: 0 1em;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    font-weight: $font-weight--bold;
+  }
+}

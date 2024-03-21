@@ -1,0 +1,49 @@
+$c_tipify--background-color: #222;
+$c_tipify--color: white;
+$c_tipify--arrow-size: 6px;
+$c_tipify--offset: 10px;
+
+.c_tipify {
+  cursor: help;
+  position: relative;
+  text-decoration: underline dotted;
+
+  &:before {
+    border-color: $c_tipify--background-color transparent transparent transparent;
+    border-style: solid;
+    border-width: $c_tipify--arrow-size $c_tipify--arrow-size 0 $c_tipify--arrow-size;
+    bottom: calc(100% + #{$c_tipify--offset - $c_tipify--arrow-size});
+    content: "";
+    left: 50%;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: opacity $duration ease-in-out;
+  }
+
+  &:after {
+    background-color: $c_tipify--background-color;
+    border-radius: $border-radius;
+    bottom: calc(100% + #{$c_tipify--offset});
+    color: $c_tipify--color;
+    content: attr(title);
+    font-size: $font-size--tiny;
+    left: 50%;
+    line-height: $line-height--snug;
+    opacity: 0;
+    padding: 1em;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: opacity $duration ease-in-out;
+    width: 50ch;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      opacity: 1;
+    }
+  }
+}

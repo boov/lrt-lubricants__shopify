@@ -1,0 +1,9 @@
+.c_site {
+  box-shadow: 0 0 50px rgba(black, 0.2);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: map-get($breakpoints, site);
+  min-height: 100vh;
+  overflow: hidden;
+}
