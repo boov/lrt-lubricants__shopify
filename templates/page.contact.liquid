@@ -1,0 +1,145 @@
+{% layout theme %}
+
+<section class="c_band">
+  <div class="l_container">
+    <h1 class="u_margin-bottom--none">
+      {{ page.title | escape }}
+    </h1>
+  </div>
+  <div class="l_container">
+    <div class="l_flex --justify-between">
+      <div class="l_flex__item --span-12 --span-7--lg">
+        <form class="u_margin-bottom--s4 u_margin-bottom--none--lg" name="contact" method="POST" action="/contact-us/success/" data-netlify="true" netlify-honeypot="subject">
+          <div class="c_input-group">
+            <label for="name">Full Name
+              <span>required
+              </span>
+            </label>
+            <input id="name" name="name" type="text" minlength="2" required>
+          </div>
+          <div class="l_flex --tight">
+            <div class="l_flex__item --span-12 --md">
+              <div class="c_input-group">
+                <label for="email_address">Email Address
+                  <span>required
+                  </span>
+                </label>
+                <input id="email_address" name="email_address" type="email" minlength="5" required>
+              </div>
+            </div>
+            <div class="l_flex__item --span-12 --md">
+              <div class="c_input-group">
+                <label for="phone_number">Phone Number
+                </label>
+                <input id="phone_number" name="phone_number" type="tel" minlength="10" maxlength="14">
+              </div>
+            </div>
+          </div>
+          <div class="c_input-group">
+            <label for="enquiry_type">Enquiry Type
+              <span>required
+              </span>
+            </label>
+            <select id="enquiry_type" name="enquiry_type">
+              <option value="general">General Enquiry
+              </option>
+              <option value="recruitment">Recruitment
+              </option>
+              <option value="other">Other
+              </option>
+            </select>
+          </div>
+          <div class="c_input-group --special">
+            <label for="subject">Subject
+            </label>
+            <input id="subject" name="subject" type="text" autocomplete="no">
+          </div>
+          <div class="c_input-group">
+            <label for="message">Message
+              <span>required
+              </span>
+            </label>
+            <textarea id="message" name="message" rows="6" minlength="20" required></textarea>
+          </div>
+          <div class="c_input-group --actions u_text-align--right u_text-align--left--lg">
+            <button type="submit" class="e_button">Submit Message
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="l_flex__item --span-12 --span-4--lg">
+        <div class="l_stack --gap-s4">
+          <div class="l_stack__item">
+            <h2 class="--h5">Contact Details
+            </h2>
+            <dl class="u_font-size--small">
+              <dt>Phone
+              </dt>
+              <dd>
+                <a href="tel:{{ contact.phone.default.href }}">
+                  {{ contact.phone.default.display }}
+                </a>
+              </dd>
+              <dt>Email
+              </dt>
+              <dd>
+                <a href="mailto:{{ contact.email.default }}">
+                  {{ contact.email.default }}
+                </a>
+              </dd>
+              <dt>Post
+              </dt>
+              <dd>
+                {{ contact.address.default }}
+              </dd>
+            </dl>
+          </div>
+          <div class="l_stack__item">
+            <h2 class="--h5">Opening Times
+            </h2>
+            <dl class="u_font-size--small">
+              <dt>Monday
+              </dt>
+              <dd>08:00 &rarr; 17:30
+              </dd>
+              <dt>Tuesday
+              </dt>
+              <dd>08:00 &rarr; 17:30
+              </dd>
+              <dt>Wednesday
+              </dt>
+              <dd>08:00 &rarr; 17:30
+              </dd>
+              <dt>Thursday
+              </dt>
+              <dd>08:00 &rarr; 17:30
+              </dd>
+              <dt>Friday
+              </dt>
+              <dd>08:00 &rarr; 17:30
+              </dd>
+              <dt>Saturday
+              </dt>
+              <dd>Closed
+              </dd>
+              <dt>Sunday
+              </dt>
+              <dd>Closed
+              </dd>
+            </dl>
+          </div>
+          <div class="l_stack__item">
+            <figure class="u_margin--none">
+              <a href="https://www.google.com/maps/dir//{{ contact.address.default | url_encode }}" target="_blank" rel="noopener"><img src="/_assets/images/map.png?ver={{ app.time }}" alt="Google map image of office location">
+              </a>
+              <figcaption>
+                <a href="https://www.google.com/maps/dir//{{ contact.address.default | url_encode }}" target="_blank" rel="noopener">Get Directions
+                </a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

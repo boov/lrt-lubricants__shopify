@@ -1,0 +1,83 @@
+{% layout theme %}
+
+<section class="c_band">
+  <div class="l_container">
+    <div class="l_flex --justify-between">
+      <div class="l_flex__item --span-12 --span-7--lg">
+        <form class="u_margin-bottom--s4 u_margin-bottom--none--lg" name="product-finder" method="POST" action="/contact-us/success/" data-netlify="true" netlify-honeypot="subject">
+          <div class="c_input-group">
+            <label for="name">Full Name
+              <span>required
+              </span>
+            </label>
+            <input id="name" name="name" type="text" minlength="2" required>
+          </div>
+          <div class="l_flex --tight">
+            <div class="l_flex__item --span-12 --md">
+              <div class="c_input-group">
+                <label for="email_address">Email Address
+                  <span>required
+                  </span>
+                </label>
+                <input id="email_address" name="email_address" type="email" minlength="5" required>
+              </div>
+            </div>
+            <div class="l_flex__item --span-12 --md">
+              <div class="c_input-group">
+                <label for="phone_number">Phone Number
+                </label>
+                <input id="phone_number" name="phone_number" type="tel" minlength="10" maxlength="14">
+              </div>
+            </div>
+          </div>
+          <div class="c_input-group --special">
+            <label for="subject">Subject
+            </label>
+            <input id="subject" name="subject" type="text" autocomplete="no">
+          </div>
+          <div class="c_input-group">
+            <label for="requirements">Your Product Requirements
+              <span>required
+              </span>
+            </label>
+            <textarea id="requirements" name="requirements" rows="6" minlength="20" required></textarea>
+          </div>
+          <div class="c_input-group --actions u_text-align--right u_text-align--left--lg">
+            <button type="submit" class="e_button">Submit Message
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="l_flex__item --span-12 --span-4--lg">
+        <h2 class="--h5">Prefer to talk to a human?
+        </h2>
+        <p class="u_margin-bottom--s4">Use the contact details below and we will help you find the perfect product.
+        </p>
+        <div class="l_stack --gap-s2">
+          <div class="l_stack__item">
+            <div class="c_box">
+              <h3 class="u_font-size--small u_margin-bottom--none">Phone Support
+              </h3>
+              <p class="--lead">
+                <a href="tel:{{ contact.phone.default.href }}">
+                  {{ contact.phone.default.display }}
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="l_stack__item">
+            <div class="c_box">
+              <h3 class="u_font-size--small u_margin-bottom--none">Email Support
+              </h3>
+              <p class="--lead">
+                <a href="mailto:{{ contact.email.default }}">
+                  {{ contact.email.default }}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
