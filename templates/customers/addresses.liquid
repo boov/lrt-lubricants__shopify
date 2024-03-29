@@ -1,6 +1,9 @@
+{% layout theme %}
+
 <script src="{{ 'customer.js' | asset_url }}" defer></script>
 
 {%- paginate customer.addresses by 5 -%}
+
   <div class="customer addresses section-{{ section.id }}-padding" data-customer-addresses>
     <svg style="display: none">
       <symbol id="icon-caret" viewBox="0 0 10 6">
@@ -22,9 +25,11 @@
         <h2 id="AddressNewHeading">
           {{ "customer.addresses.add_new" | t }}
         </h2>
+
         {%- form 'customer_address'
           , customer.new_address
           , aria-labelledBy: 'AddressNewHeading' -%}
+
           <div class="field">
             <input type="text" id="AddressFirstNameNew" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name" placeholder="{{ 'customer.addresses.first_name' | t }}">
             <label for="AddressFirstNameNew">
@@ -111,18 +116,26 @@
               {{ "customer.addresses.cancel" | t }}
             </button>
           </div>
+
         {%- endform -%}
+
       </div>
     </div>
 
     <ul role="list">
+
       {%- for address in customer.addresses -%}
+
         <li data-address>
+
           {%- if address == customer.default_address -%}
+
             <h2>
               {{ "customer.addresses.default" | t }}
             </h2>
+
           {%- endif -%}
+
           {{ address | format_address }}
           <button type="button" id="EditFormButton_{{ address.id }}" aria-label="{{ 'customer.addresses.edit_address' | t }} {{ forloop.index }}" aria-controls="EditAddress_{{ address.id }}" aria-expanded="false" data-address-id="{{ address.id }}">
             {{ "customer.addresses.edit" | t }}
@@ -134,8 +147,10 @@
             <h2>
               {{ "customer.addresses.edit_address" | t }}
             </h2>
+
             {%- form 'customer_address'
               , address -%}
+
               <div class="field">
                 <input type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name" placeholder="{{ 'customer.addresses.first_name' | t }}">
                 <label for="AddressFirstName_{{ form.id }}">
@@ -222,17 +237,25 @@
                   {{ "customer.addresses.cancel" | t }}
                 </button>
               </div>
+
             {%- endform -%}
+
           </div>
         </li>
+
       {%- endfor -%}
+
     </ul>
 
     {%- if paginate.pages > 1 -%}
+
       {%- if paginate.parts.size > 0 -%}
+
         <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
           <ul role="list">
+
             {%- if paginate.previous -%}
+
               <li>
                 <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
@@ -240,29 +263,43 @@
                   </svg>
                 </a>
               </li>
+
             {%- endif -%}
 
             {%- for part in paginate.parts -%}
+
               <li>
+
                 {%- if part.is_link -%}
+
                   <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
                     {{- part.title -}}
                   </a>
+
                 {%- else -%}
+
                   {%- if part.title == paginate.current_page -%}
+
                     <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
                       {{- part.title -}}
                     </span>
+
                   {%- else -%}
+
                     <span>
                       {{ part.title }}
                     </span>
+
                   {%- endif -%}
+
                 {%- endif -%}
+
               </li>
+
             {%- endfor -%}
 
             {%- if paginate.next -%}
+
               <li>
                 <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
@@ -270,12 +307,18 @@
                   </svg>
                 </a>
               </li>
+
             {%- endif -%}
+
           </ul>
         </nav>
+
       {%- endif -%}
+
     {%- endif -%}
+
   </div>
+
 {%- endpaginate -%}
 
 <script>
@@ -283,10 +326,3 @@
     typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
   });
 </script>
-
-{% schema %}
-  {
-    "name": "t:sections.main-addresses.name",
-    "settings": []
-  }
-{% endschema %}

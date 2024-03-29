@@ -1,3 +1,5 @@
+{% layout theme %}
+
 <div class="customer account section-{{ section.id }}-padding">
   <div>
     <h1 class="customer__title">
@@ -18,7 +20,9 @@
       </h2>
 
       {% paginate customer.orders by 20 %}
+
         {%- if customer.orders.size > 0 -%}
+
           <table role="table" class="order-history">
             <caption class="visually-hidden">
               {{ "customer.orders.title" | t }}
@@ -43,7 +47,9 @@
               </tr>
             </thead>
             <tbody role="rowgroup">
+
               {%- for order in customer.orders -%}
+
                 <tr role="row">
                   <td id="RowOrder" role="cell" headers="ColumnOrder" data-label="{{ 'customer.orders.order_number' | t }}">
                     <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">
@@ -63,20 +69,29 @@
                     {{ order.total_net_amount | money_with_currency }}
                   </td>
                 </tr>
+
               {%- endfor -%}
+
             </tbody>
           </table>
+
         {%- else -%}
+
           <p>
             {{ "customer.orders.none" | t }}
           </p>
+
         {%- endif -%}
 
         {%- if paginate.pages > 1 -%}
+
           {%- if paginate.parts.size > 0 -%}
+
             <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
               <ul role="list">
+
                 {%- if paginate.previous -%}
+
                   <li>
                     <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
                       <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
@@ -84,29 +99,43 @@
                       </svg>
                     </a>
                   </li>
+
                 {%- endif -%}
 
                 {%- for part in paginate.parts -%}
+
                   <li>
+
                     {%- if part.is_link -%}
+
                       <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
                         {{- part.title -}}
                       </a>
+
                     {%- else -%}
+
                       {%- if part.title == paginate.current_page -%}
+
                         <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">
                           {{- part.title -}}
                         </span>
+
                       {%- else -%}
+
                         <span>
                           {{ part.title }}
                         </span>
+
                       {%- endif -%}
+
                     {%- endif -%}
+
                   </li>
+
                 {%- endfor -%}
 
                 {%- if paginate.next -%}
+
                   <li>
                     <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">
                       <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
@@ -114,12 +143,18 @@
                       </svg>
                     </a>
                   </li>
+
                 {%- endif -%}
+
               </ul>
             </nav>
+
           {%- endif -%}
+
         {%- endif -%}
+
       {% endpaginate %}
+
     </div>
 
     <div>
@@ -135,10 +170,3 @@
     </div>
   </div>
 </div>
-
-{% schema %}
-  {
-    "name": "t:sections.main-account.name",
-    "settings": []
-  }
-{% endschema %}
