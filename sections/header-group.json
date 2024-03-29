@@ -4,16 +4,26 @@
   "sections": {
     "topbar": {
       "type": "topbar",
-      "settings": { "message": "Welcome to our store" }
+      "settings": {
+        "message": "Welcome to our store",
+        "menu": "topbar-menu"
+      }
     },
     "banner": {
       "type": "banner",
-      "settings": {}
+      "settings": {
+      }
     },
     "navigation": {
       "type": "navigation",
-      "settings": {}
+      "settings": {
+        "menu": "main-menu"
+      }
     }
   },
-  "order": ["topbar", "banner", "navigation"]
+  "order": [
+    "topbar",
+    "banner",
+    "navigation"
+  ]
 }
