@@ -3,13 +3,24 @@
 
     {%- if section.settings.message and false -%}
 
-      <p class="u_margin-bottom--none u_text-align--center">{{ section.settings.message }}</p>
+      <p class="u_margin-bottom--none u_text-align--center">
+        {{ section.settings.message }}
+      </p>
 
     {%- endif -%}
 
     <div class="l_flex --align-center --justify-between">
       <div class="l_flex__item">
-        <p class="c_topbar__rating">Rated <strong>5</strong> out of <strong>5</strong> from <a href="#">17 reviews</a></p>
+        <p class="c_topbar__rating">Rated
+          <strong>5
+          </strong>
+          out of
+          <strong>5
+          </strong>
+          from
+          <a href="#">17 reviews
+          </a>
+        </p>
       </div>
 
       {%- if section.settings.menu.links %}
@@ -20,7 +31,11 @@
 
               {%- for link in section.settings.menu.links -%}
 
-                <li class="_asd"><a href="{{ link.url }}">{{- link.title | escape -}}</a></li>
+                <li class="_asd">
+                  <a href="{{ link.url }}">
+                    {{- link.title | escape -}}
+                  </a>
+                </li>
 
               {%- endfor -%}
 
@@ -29,7 +44,10 @@
                 <li class="_account">
                   <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">
 
-                    {%- if customer %}My Account{%- else %}Log in{%- endif -%}
+                    {%- if customer %}My Account
+                    {%- else %}
+                      Log in
+                    {%- endif -%}
 
                   </a>
                 </li>

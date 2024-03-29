@@ -8,6 +8,7 @@
     "prettier:fix": "prettier --write ./{src,config,layout,locales,sections,snippets,templates}/**/*.{scss,css,js,json}",
     "shopify:check": "shopify theme check --environment lrt",
     "shopify:dev": "shopify theme dev --environment lrt",
+    "shopify:push": "shopify theme push --development",
     "build": "node bundle.mjs",
     "dev": "run-p build shopify:dev"
   },

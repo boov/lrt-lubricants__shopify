@@ -13,19 +13,7 @@
     "navigation": {
       "type": "navigation",
       "settings": {}
-    },
-    "hero": {
-      "type": "hero",
-      "settings": {
-        "template": "home",
-        "pre_title": "Welcome to LRT Lubricants",
-        "title": "Suppliers of Lubricants, Greases, Oils and more",
-        "excerpt": "LRT Lubricants is here to take the confusion out of choosing the correct products for all your mechanical needs to help keep the cogs turning and wheels moving with a fast, reliable and helpful service."
-      }
-    },
-    "usps": {
-      "type": "usps"
     }
   },
-  "order": ["topbar", "banner", "navigation", "hero", "usps"]
+  "order": ["topbar", "banner", "navigation"]
 }
