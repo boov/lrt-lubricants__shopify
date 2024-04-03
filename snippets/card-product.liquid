@@ -103,11 +103,11 @@
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.available == false -%}
               <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="badge badge--bottom-left">
-                {{- "products.product.sold_out" | t -}}
+                Sold out
               </span>
             {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
               <span id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}" class="badge badge--bottom-left">
-                {{- "products.product.on_sale" | t -}}
+                Sale
               </span>
             {%- endif -%}
           </div>
@@ -123,7 +123,7 @@
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">
-                {{ "accessibility.vendor" | t }}
+                Vendor
               </span>
               <div class="caption-with-letter-spacing light">
                 {{ card_product.vendor }}
@@ -144,21 +144,19 @@
                   assign rating_decimal = 1
                 endif
               %}
-              <div class="rating" role="img" aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}">
+              <div class="rating" role="img" aria-label="{{ "accessibility.star_reviews_info" | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}">
                 <span aria-hidden="true" class="rating-star" style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"></span>
               </div>
               <p class="rating-text caption">
                 <span aria-hidden="true">
-                  {{- card_product.metafields.reviews.rating.value }} /
-                  {{ card_product.metafields.reviews.rating.value.scale_max -}}
+                  {{- card_product.metafields.reviews.rating.value }} / {{ card_product.metafields.reviews.rating.value.scale_max -}}
                 </span>
               </p>
               <p class="rating-count caption">
                 <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }})
                 </span>
                 <span class="visually-hidden">
-                  {{- card_product.metafields.reviews.rating_count }}
-                  {{ "accessibility.total_reviews" | t -}}
+                  {{- card_product.metafields.reviews.rating_count }} total reviews
                 </span>
               </p>
             {%- endif -%}
@@ -170,7 +168,7 @@
             {%- if card_product.quantity_price_breaks_configured? -%}
               <div class="card__information-volume-pricing-note">
                 <span class="caption">
-                  {{ "products.product.volume_pricing.note" | t }}
+                  Volume pricing available
                 </span>
               </div>
             {%- endif -%}
@@ -188,7 +186,7 @@
             {%- if card_product.variants.size > 1 or qty_rules -%}
               <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
                 <button id="{{ product_form_id }}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}" aria-haspopup="dialog" aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}" data-product-url="{{ card_product.url }}">
-                  {{ "products.product.choose_options" | t }}
+                  Choose options
                   {%- if horizontal_quick_add -%}
                     <span class="icon-wrap">
                       {% render "icon-arrow" %}
@@ -198,8 +196,8 @@
                 </button>
               </modal-opener>
               <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
-                <div role="dialog" aria-label="{{ 'products.product.choose_product_options' | t: product_name: card_product.title | escape }}" aria-modal="true" class="quick-add-modal__content global-settings-popup" tabindex="-1">
-                  <button id="ModalClose-{{ card_product.id }}" type="button" class="quick-add-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">
+                <div role="dialog" aria-label="{{ "products.product.choose_product_options" | t: product_name: card_product.title | escape }}" aria-modal="true" class="quick-add-modal__content global-settings-popup" tabindex="-1">
+                  <button id="ModalClose-{{ card_product.id }}" type="button" class="quick-add-modal__toggle" aria-label="Close">
                     {% render "icon-close" %}
                   </button>
                   <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
@@ -217,13 +215,13 @@
                   <button id="{{ product_form_id }}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add{% endif %}" aria-haspopup="dialog" aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}" aria-live="polite" data-sold-out-message="true" {% if card_product.selected_or_first_available_variant.available == false %} disabled {% endif %}>
                     <span>
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{ "products.product.add_to_cart" | t }}
+                        Add to cart
                       {%- else -%}
-                        {{ "products.product.sold_out" | t }}
+                        Sold out
                       {%- endif -%}
                     </span>
                     <span class="sold-out-message hidden">
-                      {{ "products.product.sold_out" | t }}
+                      Sold out
                     </span>
                     {%- if horizontal_quick_add -%}
                       <span class="icon-wrap">
@@ -240,11 +238,11 @@
         <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span id="Badge-{{ section_id }}-{{ card_product.id }}" class="badge badge--bottom-left">
-              {{- "products.product.sold_out" | t -}}
+              Sold out
             </span>
           {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
             <span id="Badge-{{ section_id }}-{{ card_product.id }}" class="badge badge--bottom-left">
-              {{- "products.product.on_sale" | t -}}
+              Sale
             </span>
           {%- endif -%}
         </div>
@@ -278,17 +276,15 @@
       <div class="card__content">
         <div class="card__information">
           <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
-            <a role="link" aria-disabled="true" class="full-unstyled-link">
-              {{ "onboarding.product_title" | t }}
-            </a>
+            <a role="link" aria-disabled="true" class="full-unstyled-link">Example product title</a>
           </h3>
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">
-                {{ "accessibility.vendor" | t }}
+                Vendor
               </span>
               <div class="caption-with-letter-spacing light">
-                {{ "products.product.vendor" | t }}
+                Vendor
               </div>
             {%- endif -%}
             {% render "price"

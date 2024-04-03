@@ -1,8 +1,8 @@
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
-  <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ "facets.js" | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-<script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
+<script src="{{ "main-search.js" | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign sort_by = search.sort_by | default: search.default_sort_by
@@ -20,9 +20,9 @@ section-{{ section.id }}-padding">
 endif %}">
           <h1 class="h2 center">
             {%- if search.performed -%}
-              {{- "templates.search.title" | t -}}
+              Search results
             {%- else -%}
-              {{- "general.search.search" | t -}}
+              Search
             {%- endif -%}
           </h1>
           {%- if search.performed -%}
@@ -47,9 +47,7 @@ endif %}">
                 <div class="facet-filters sorting caption">
                   <div class="facet-filters__field">
                     <h2 class="facet-filters__label caption-large text-body">
-                      <label for="SortBy">
-                        {{ "products.facets.sort_by_label" | t }}
-                      </label>
+                      <label for="SortBy">Sort by:</label>
                     </h2>
                     <div class="select">
                       {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
@@ -101,8 +99,7 @@ endif %}">
                   <div class="loading-overlay gradient"></div>
                   <div class="title-wrapper center">
                     <h2 class="title title--primary">
-                      {{ "sections.collection_template.empty" | t -}}
-                      <br>
+                      No products found <br>
                       {{ "sections.collection_template.use_fewer_filters_html" | t: link: search_url, class: "underlined-link link" }}
                     </h2>
                   </div>
@@ -150,9 +147,7 @@ endif %}">
                                     </h3>
                                   </div>
                                   <div class="card__badge {{ settings.badge_position }}">
-                                    <span class="badge">
-                                      {{- "templates.search.page" | t -}}
-                                    </span>
+                                    <span class="badge">Page</span>
                                   </div>
                                 </div>
                               </div>

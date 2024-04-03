@@ -21,9 +21,9 @@
         </p>
         <button id="ShowPickupAvailabilityDrawer" class="pickup-availability-button link link--text underlined-link" aria-haspopup="dialog">
           {%- if pick_up_availabilities.size == 1 -%}
-            {{ "products.product.pickup_availability.view_store_info" | t }}
+            View store information
           {%- else -%}
-            {{ "products.product.pickup_availability.check_other_stores" | t }}
+            Check availability at other stores
           {%- endif -%}
         </button>
       {%- else -%}
@@ -32,7 +32,7 @@
         </p>
         {%- if pick_up_availabilities.size > 1 -%}
           <button id="ShowPickupAvailabilityDrawer" class="pickup-availability-button link link--text underlined-link" aria-haspopup="dialog">
-            {{ "products.product.pickup_availability.check_other_stores" | t }}
+            Check availability at other stores
           </button>
         {%- endif -%}
       {%- endif -%}
@@ -44,7 +44,7 @@
       <h2 class="h3 pickup-availability-drawer-title" id="PickupAvailabilityHeading">
         {{ product_variant.product.title | escape }}
       </h2>
-      <button class="pickup-availability-drawer-button" type="button" aria-label="{{ 'accessibility.close' | t }}">
+      <button class="pickup-availability-drawer-button" type="button" aria-label="Close">
         {%- render "icon-close" -%}
       </button>
     </div>
@@ -74,9 +74,7 @@
           </h3>
           <p class="pickup-availability-preview caption-large">
             {%- if availability.available -%}
-              {% render "icon-tick" %}
-              {{ "products.product.pickup_availability.pick_up_available" | t }},
-              {{ availability.pick_up_time | downcase }}
+              {% render "icon-tick" %} Pickup available, {{ availability.pick_up_time | downcase }}
             {%- endif -%}
           </p>
 

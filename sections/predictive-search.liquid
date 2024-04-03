@@ -11,7 +11,7 @@
     {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
       <div>
         <h2 id="predictive-search-queries" class="predictive-search__heading text-body caption-with-letter-spacing">
-          {{- "templates.search.suggestions" | t -}}
+          Suggestions
         </h2>
         <ul id="predictive-search-results-queries-list" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-queries">
           {%- for query in predictive_search.resources.queries -%}
@@ -41,9 +41,7 @@
     {%- endif -%}
     {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
       <div class="predictive-search__pages-wrapper">
-        <h2 id="predictive-search-pages-desktop" class="predictive-search__heading text-body caption-with-letter-spacing">
-          {{- "templates.search.pages" | t -}}
-        </h2>
+        <h2 id="predictive-search-pages-desktop" class="predictive-search__heading text-body caption-with-letter-spacing">Pages</h2>
         <ul id="predictive-search-results-pages-list-desktop" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-pages-desktop">
           {%- for page in predictive_search.resources.pages -%}
             <li id="predictive-search-option-page-desktop-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
@@ -77,9 +75,7 @@
       <div class="predictive-search__result-group">
         {%- if predictive_search.resources.products.size > 0 -%}
           <div>
-            <h2 id="predictive-search-products" class="predictive-search__heading text-body caption-with-letter-spacing">
-              {{- "templates.search.products" | t -}}
-            </h2>
+            <h2 id="predictive-search-products" class="predictive-search__heading text-body caption-with-letter-spacing">Products</h2>
             <ul id="predictive-search-results-products-list" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-products">
               {%- for product in predictive_search.resources.products -%}
                 <li id="predictive-search-option-product-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
@@ -91,7 +87,7 @@
 settings.predictive_search_show_price %} predictive-search__item-content--centered{% endunless %}">
                       {%- if settings.predictive_search_show_vendor -%}
                         <span class="visually-hidden">
-                          {{ "accessibility.vendor" | t }}
+                          Vendor
                         </span>
                         <div class="predictive-search__item-vendor caption-with-letter-spacing">
                           {{ product.vendor }}
@@ -115,9 +111,7 @@ settings.predictive_search_show_price %} predictive-search__item-content--center
         {%- endif -%}
         {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
           <div class="predictive-search__pages-wrapper">
-            <h2 id="predictive-search-pages-mobile" class="predictive-search__heading text-body caption-with-letter-spacing">
-              {{- "templates.search.pages" | t -}}
-            </h2>
+            <h2 id="predictive-search-pages-mobile" class="predictive-search__heading text-body caption-with-letter-spacing">Pages</h2>
             <ul id="predictive-search-results-pages-list-mobile" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-pages-mobile">
               {%- for page in predictive_search.resources.pages -%}
                 <li id="predictive-search-option-page-mobile-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
@@ -167,19 +161,19 @@ settings.predictive_search_show_price %} predictive-search__item-content--center
     {% liquid
       assign total_results = predictive_search.resources.products.size | plus: first_column_results_size
       if total_results == 0
-        echo 'templates.search.no_results' | t: terms: predictive_search.terms
+        echo "templates.search.no_results" | t: terms: predictive_search.terms
       else
-        echo 'templates.search.results_with_count' | t: count: total_results | append: ': '
+        echo "templates.search.results_with_count" | t: count: total_results | append: ': '
         if predictive_search.resources.queries.size > 0
           assign count = predictive_search.resources.queries.size | plus: predictive_search.resources.collections.size
-          echo 'templates.search.results_suggestions_with_count' | t: count: count | append: ', '
+          echo "templates.search.results_suggestions_with_count" | t: count: count | append: ', '
         endif
         if predictive_search.resources.pages.size > 0
           assign count = predictive_search.resources.pages.size | plus: predictive_search.resources.articles.size
-          echo 'templates.search.results_pages_with_count' | t: count: count | append: ', '
+          echo "templates.search.results_pages_with_count" | t: count: count | append: ', '
         endif
         if predictive_search.resources.products.size > 0
-          echo 'templates.search.results_products_with_count' | t: count: predictive_search.resources.products.size
+          echo "templates.search.results_products_with_count" | t: count: predictive_search.resources.products.size
         endif
       endif
     %}

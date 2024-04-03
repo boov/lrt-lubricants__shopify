@@ -85,8 +85,7 @@ section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spaci
                 {%- if block.settings.link_label != blank -%}
                   <a class="link animate-arrow" {% if block.settings.link == blank %} role="link" aria-disabled="true" {% else %} href="{{ block.settings.link }}" {% endif %}>
                     {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render "icon-arrow" %}
-                    </span>
+                    <span class="icon-wrap">&nbsp;{% render "icon-arrow" %}</span>
                   </a>
                 {%- endif -%}
               </div>
@@ -97,7 +96,7 @@ section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spaci
 
       {%- if show_mobile_slider -%}
         <div class="slider-buttons large-up-hide">
-          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Slide left">
             {% render "icon-caret" %}
           </button>
           <div class="slider-counter caption">
@@ -107,13 +106,13 @@ section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spaci
               /
             </span>
             <span class="visually-hidden">
-              {{ "general.slider.of" | t }}
+              of
             </span>
             <span class="slider-counter--total">
               {{ section.blocks.size }}
             </span>
           </div>
-          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="Slide right">
             {% render "icon-caret" %}
           </button>
         </div>

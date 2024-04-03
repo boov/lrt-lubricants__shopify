@@ -9,11 +9,10 @@
         </symbol>
       </svg>
       <div>
-        <h1 class="customer__title">
-          {{ "customer.account.title" | t }}
+        <h1 class="customer__title">Account
         </h1>
         <a href="{{ routes.account_url }}">
-          {{ "customer.account.return" | t }}
+          Return to Account details
         </a>
       </div>
 
@@ -26,7 +25,7 @@
           {%- assign order_date = order.created_at | time_tag: format: "date_at_time" -%}
 
           <p>
-            {{ "customer.order.date_html" | t: date: order_date }}
+            Date {{ date: order_date }}
           </p>
 
           {%- if order.cancelled -%}
@@ -49,19 +48,19 @@
             <thead role="rowgroup">
               <tr role="row">
                 <th id="ColumnProduct" scope="col" role="columnheader">
-                  {{ "customer.order.product" | t }}
+                  Product
                 </th>
                 <th id="ColumnSku" scope="col" role="columnheader">
-                  {{ "customer.order.sku" | t }}
+                  SKU
                 </th>
                 <th id="ColumnPrice" scope="col" role="columnheader">
-                  {{ "customer.order.price" | t }}
+                  Price
                 </th>
                 <th id="ColumnQuantity" scope="col" role="columnheader">
-                  {{ "customer.order.quantity" | t }}
+                  Quantity
                 </th>
                 <th id="ColumnTotal" scope="col" role="columnheader">
-                  {{ "customer.order.total" | t }}
+                  Total
                 </th>
               </tr>
             </thead>
@@ -70,7 +69,7 @@
               {%- for line_item in order.line_items -%}
 
                 <tr role="row">
-                  <td id="Row{{ line_item.key }}" headers="ColumnProduct" role="rowheader" scope="row" data-label="{{ 'customer.order.product' | t }}">
+                  <td id="Row{{ line_item.key }}" headers="ColumnProduct" role="rowheader" scope="row" data-label="Product">
                     <div>
 
                       {%- if line_item.url != blank -%}
@@ -148,7 +147,7 @@
 
                       {%- if line_item.line_level_discount_allocations != blank -%}
 
-                        <ul role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                        <ul role="list" aria-label="Discount">
 
                           {%- for discount_allocation in line_item.line_level_discount_allocations -%}
 
@@ -156,9 +155,7 @@
                               <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
                                 <use href="#icon-discount" />
                               </svg>
-                              {{- discount_allocation.discount_application.title }} (-
-                              {{- discount_allocation.amount | money -}}
-                              )
+                              {{- discount_allocation.discount_application.title }} (- {{- discount_allocation.amount | money -}} )
                             </li>
 
                           {%- endfor -%}
@@ -180,7 +177,7 @@
                           {%- if line_item.fulfillment.tracking_url -%}
 
                             <a href="{{ line_item.fulfillment.tracking_url }}">
-                              {{ "customer.order.track_shipment" | t }}
+                              Track shipment
                             </a>
 
                           {%- endif -%}
@@ -201,10 +198,10 @@
 
                     </div>
                   </td>
-                  <td headers="Row{{ line_item.key }} ColumnSku" role="cell" data-label="{{ 'customer.order.sku' | t }}">
+                  <td headers="Row{{ line_item.key }} ColumnSku" role="cell" data-label="SKU">
                     {{ line_item.sku }}
                   </td>
-                  <td headers="Row{{ line_item.key }} ColumnPrice" role="cell" data-label="{{ 'customer.order.price' | t }}">
+                  <td headers="Row{{ line_item.key }} ColumnPrice" role="cell" data-label="Price">
 
                     {%- if line_item.original_price != line_item.final_price or line_item.unit_price_measurement -%}
 
@@ -214,7 +211,7 @@
 
                           <dt>
                             <span class="visually-hidden">
-                              {{ "products.product.price.regular_price" | t }}
+                              Regular price
                             </span>
                           </dt>
                           <dd class="regular-price">
@@ -224,7 +221,7 @@
                           </dd>
                           <dt>
                             <span class="visually-hidden">
-                              {{ "products.product.price.sale_price" | t }}
+                              Sale price
                             </span>
                           </dt>
                           <dd>
@@ -237,7 +234,7 @@
 
                           <dt>
                             <span class="visually-hidden">
-                              {{ "products.product.price.regular_price" | t }}
+                              Regular price
                             </span>
                           </dt>
                           <dd>
@@ -250,7 +247,7 @@
 
                           <dt>
                             <span class="visually-hidden">
-                              {{ "products.product.price.unit_price" | t }}
+                              Unit price
                             </span>
                           </dt>
                           <dd class="unit-price">
@@ -259,7 +256,7 @@
                               {%- capture unit_price_separator -%}
 
                             <span aria-hidden="true">/</span
-                            ><span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                            ><span class="visually-hidden">per&nbsp;</span>
 
                           {%- endcapture -%}
                               {%- capture unit_price_base_unit -%}
@@ -295,17 +292,17 @@
                     {%- endif -%}
 
                   </td>
-                  <td headers="Row{{ line_item.key }} ColumnQuantity" role="cell" data-label="{{ 'customer.order.quantity' | t }}">
+                  <td headers="Row{{ line_item.key }} ColumnQuantity" role="cell" data-label="Quantity">
                     {{ line_item.quantity }}
                   </td>
-                  <td headers="Row{{ line_item.key }} ColumnTotal" role="cell" data-label="{{ 'customer.order.total' | t }}">
+                  <td headers="Row{{ line_item.key }} ColumnTotal" role="cell" data-label="Total">
 
                     {%- if line_item.original_line_price != line_item.final_line_price -%}
 
                       <dl>
                         <dt>
                           <span class="visually-hidden">
-                            {{ "products.product.price.regular_price" | t }}
+                            Regular price
                           </span>
                         </dt>
                         <dd class="regular-price">
@@ -315,7 +312,7 @@
                         </dd>
                         <dt>
                           <span class="visually-hidden">
-                            {{ "products.product.price.sale_price" | t }}
+                            Sale price
                           </span>
                         </dt>
                         <dd>
@@ -340,9 +337,9 @@
             <tfoot role="rowgroup">
               <tr role="row">
                 <td id="RowSubtotal" role="rowheader" scope="row" colspan="4">
-                  {{ "customer.order.subtotal" | t }}
+                  Subtotal
                 </td>
-                <td headers="RowSubtotal" role="cell" data-label="{{ 'customer.order.subtotal' | t }}">
+                <td headers="RowSubtotal" role="cell" data-label="Subtotal">
                   {{ order.line_items_subtotal_price | money }}
                 </td>
               </tr>
@@ -354,7 +351,7 @@
                   {%- for discount_application in order.cart_level_discount_applications -%}
 
                     <td id="RowDiscount" role="rowheader" scope="row" colspan="4">
-                      {{ "customer.order.discount" | t }}
+                      Discount
                       <span class="cart-discount">
                         <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
                           <use href="#icon-discount" />
@@ -362,10 +359,9 @@
                         {{- discount_application.title -}}
                       </span>
                     </td>
-                    <td headers="RowDiscount" role="cell" data-label="{{ 'customer.order.discount' | t }}">
+                    <td headers="RowDiscount" role="cell" data-label="Discount">
                       <div>
-                        <span>-{{ discount_application.total_allocated_amount | money }}
-                        </span>
+                        <span>-{{ discount_application.total_allocated_amount | money }}</span>
                         <span class="cart-discount">
                           <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
                             <use href="#icon-discount" />
@@ -385,9 +381,9 @@
 
                 <tr role="row">
                   <td id="RowShipping" role="rowheader" scope="row" colspan="4">
-                    {{ "customer.order.shipping" | t }} ({{ shipping_method.title }})
+                    Shipping ({{ shipping_method.title }})
                   </td>
-                  <td headers="RowShipping" role="cell" data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})">
+                  <td headers="RowShipping" role="cell" data-label="Shipping ({{ shipping_method.title }})">
                     {{ shipping_method.price | money }}
                   </td>
                 </tr>
@@ -398,10 +394,10 @@
 
                 <tr role="row">
                   <td id="RowTax" role="rowheader" scope="row" colspan="4">
-                    {{ "customer.order.tax" | t }} ({{ tax_line.title }}
+                    Tax ({{ tax_line.title }}
                     {{ tax_line.rate | times: 100 }}%)
                   </td>
-                  <td headers="RowTax" role="cell" data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">
+                  <td headers="RowTax" role="cell" data-label="Tax ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">
                     {{ tax_line.price | money }}
                   </td>
                 </tr>
@@ -412,9 +408,9 @@
 
                 <tr role="row">
                   <td id="RowDuties" role="rowheader" scope="row" colspan="4">
-                    {{ "customer.order.total_duties" | t }}
+                    Duties
                   </td>
-                  <td headers="RowDuties" role="cell" data-label="{{ 'customer.order.total_duties' | t }}">
+                  <td headers="RowDuties" role="cell" data-label="Duties">
                     {{ order.total_duties | money }}
                   </td>
                 </tr>
@@ -425,20 +421,19 @@
 
                 <tr role="row">
                   <td id="RowTotalRefund" role="rowheader" scope="row" colspan="3">
-                    {{ "customer.order.total_refunded" | t }}
+                    Refunded
                   </td>
-                  <td headers="RowTotalRefund" role="cell" colspan="2" data-label="{{ 'customer.order.total_refunded' | t }}">
-                    -{{ order.total_refunded_amount | money_with_currency }}
-                  </td>
+                  <td headers="RowTotalRefund" role="cell" colspan="2" data-label="Refunded">
+                    -{{ order.total_refunded_amount | money_with_currency }}</td>
                 </tr>
 
               {%- endif -%}
 
               <tr role="row">
                 <td id="RowTotal" role="rowheader" scope="row" colspan="3">
-                  {{ "customer.order.total" | t }}
+                  Total
                 </td>
-                <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}">
+                <td headers="RowTotal" role="cell" colspan="2" data-label="Total">
                   {{ order.total_net_amount | money_with_currency }}
                 </td>
               </tr>
@@ -448,11 +443,11 @@
         <div>
           <div>
             <h2>
-              {{ "customer.order.billing_address" | t }}
+              Billing Address
             </h2>
             <p>
               <strong>
-                {{ "customer.order.payment_status" | t }}:
+                Payment Status
               </strong>
               {{ order.financial_status_label }}
             </p>
@@ -460,11 +455,11 @@
           </div>
           <div>
             <h2>
-              {{ "customer.order.shipping_address" | t }}
+              Shipping Address
             </h2>
             <p>
               <strong>
-                {{ "customer.order.fulfillment_status" | t }}:
+                Fulfillment Status
               </strong>
               {{ order.fulfillment_status_label }}
             </p>

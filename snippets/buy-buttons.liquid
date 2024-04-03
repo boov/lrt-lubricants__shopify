@@ -65,9 +65,9 @@
           <button id="ProductSubmitButton-{{ section_id }}" type="submit" name="add" class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}" {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout or product.selected_or_first_available_variant == null %} disabled {% endif %}>
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                {{ "products.product.sold_out" | t }}
+                Sold out
               {%- else -%}
-                {{ "products.product.add_to_cart" | t }}
+                Add to cart
               {%- endif -%}
             </span>
             {%- render "loading-spinner" -%}
@@ -82,7 +82,7 @@
     <div class="product-form">
       <div class="product-form__buttons form">
         <button type="submit" name="add" class="product-form__submit button button--full-width button--primary" disabled>
-          {{ "products.product.sold_out" | t }}
+          Sold out
         </button>
       </div>
     </div>
@@ -96,17 +96,13 @@
         <pickup-availability-preview class="pickup-availability-preview">
           {% render "icon-unavailable" %}
           <div class="pickup-availability-info">
-            <p class="caption-large">
-              {{ "products.product.pickup_availability.unavailable" | t }}
-            </p>
-            <button class="pickup-availability-button link link--text underlined-link">
-              {{ "products.product.pickup_availability.refresh" | t }}
-            </button>
+            <p class="caption-large">Couldn't load pickup availability</p>
+            <button class="pickup-availability-button link link--text underlined-link">Refresh</button>
           </div>
         </pickup-availability-preview>
       </template>
     </pickup-availability>
 
-    <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ "pickup-availability.js" | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>

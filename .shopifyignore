@@ -12,3 +12,6 @@ package-lock.json
 package.json
 pnpm-lock.yaml
 src
+sections/dawn
+settingsTranslations.json
+templateTranslations.json

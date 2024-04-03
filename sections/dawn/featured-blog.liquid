@@ -17,11 +17,11 @@ title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
         </h2>
 
         {%- if section.settings.blog != blank and section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
-          <a href="{{ section.settings.blog.url }}" class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-            {{ "sections.featured_blog.view_all" | t }}
-          </a>
+          <a href="{{ section.settings.blog.url }}" class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">View all</a>
         {%- endif -%}
+
       </div>
+
     {%- endunless -%}
 
     <slider-component class="slider-mobile-gutter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -51,32 +51,26 @@ endif %}">
                     {% if section.settings.show_image %} card--media{% else %} card--text{% endif %}
                   " style=" {% if settings.blog_card_style == 'standard' %} --ratio-percent: 100%;{% elsif settings.blog_card_style == 'card' %} --ratio-percent: 0%;{% endif %}">
                   <div class="card__inner ratio" style="--ratio-percent: 80%;">
+
                     {%- if section.settings.show_image == true -%}
+
                       <div class="article-card__image-wrapper card__media">
-                        <div class="article-card__image media">
-                          {{ placeholder_image | placeholder_svg_tag: "blog-placeholder-svg" }}
-                        </div>
+                        <div class="article-card__image media">{{ placeholder_image | placeholder_svg_tag: "blog-placeholder-svg" }}</div>
                       </div>
+
                     {%- endif -%}
+
                     <div class="card__content">
                       <div class="card__information">
-                        <h3 class="card__heading h2">
-                          {{ "sections.featured_blog.onboarding_title" | t }}
-                        </h3>
-                        <p class="article-card__excerpt rte-width">
-                          {{ "sections.featured_blog.onboarding_content" | t }}
-                        </p>
+                        <h3 class="card__heading h2">Blog post</h3>
+                        <p class="article-card__excerpt rte-width">Give your customers a summary of your blog post</p>
                       </div>
                     </div>
                   </div>
                   <div class="card__content">
                     <div class="card__information">
-                      <h3 class="card__heading h2">
-                        {{ "sections.featured_blog.onboarding_title" | t }}
-                      </h3>
-                      <p class="article-card__excerpt rte-width">
-                        {{ "sections.featured_blog.onboarding_content" | t }}
-                      </p>
+                      <h3 class="card__heading h2">Blog post</h3>
+                      <p class="article-card__excerpt rte-width">Give your customers a summary of your blog post</p>
                     </div>
                   </div>
                 </div>
@@ -88,7 +82,7 @@ endif %}">
       {%- if posts_exceed_limit -%}
         <div class="slider-buttons{% if section.settings.post_limit < 3 %} medium-hide{% endif %}{% if section.settings.post_limit < 2
 %} small-hide{% endif %}">
-          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Slide left">
             {% render "icon-caret" %}
           </button>
           <div class="slider-counter caption">
@@ -98,13 +92,13 @@ endif %}">
               /
             </span>
             <span class="visually-hidden">
-              {{ "general.slider.of" | t }}
+              of
             </span>
             <span class="slider-counter--total">
               {{ section.settings.post_limit }}
             </span>
           </div>
-          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="Slide right">
             {% render "icon-caret" %}
           </button>
         </div>
@@ -113,9 +107,7 @@ endif %}">
 
     {%- if section.settings.show_view_all and section.settings.post_limit < section.settings.blog.articles_count -%}
       <div class="blog__view-all center small-hide medium-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
-        <a href="{{ section.settings.blog.url }}" id="ViewAll-{{ section.id }}" class="blog__button button" aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}">
-          {{ "sections.featured_blog.view_all" | t }}
-        </a>
+        <a href="{{ section.settings.blog.url }}" id="ViewAll-{{ section.id }}" class="blog__button button" aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}">View all</a>
       </div>
     {%- endif -%}
   </div>

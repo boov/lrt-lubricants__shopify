@@ -28,8 +28,7 @@
 <div class="disclosure">
   <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="{{ localPosition }}-country-results" aria-describedby="{{ localPosition }}Label">
     <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
+      {{- localization.country.name }} | {{ localization.country.currency.iso_code }}
       {{ localization.country.currency.symbol -}}
     </span>
     {% render "icon-caret" %}
@@ -38,11 +37,9 @@
     <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %}">
       {% if show_country_filter %}
         <div class="field">
-          <input class="country-filter__input field__input" id="country-filter-input" type="search" name="country_filter" value="" placeholder="{{ 'localization.search' | t }}" role="combobox" aria-owns="country-results" aria-controls="country-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false">
-          <label class="field__label" for="country-filter-input">
-            {{ "localization.search" | t }}
-          </label>
-          <button type="reset" class="country-filter__reset-button field__button hidden" aria-label="{{ 'general.search.reset' | t }}">
+          <input class="country-filter__input field__input" id="country-filter-input" type="search" name="country_filter" value="" placeholder="Search" role="combobox" aria-owns="country-results" aria-controls="country-results" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false">
+          <label class="field__label" for="country-filter-input">Search</label>
+          <button type="reset" class="country-filter__reset-button field__button hidden" aria-label="Clear search term">
             <svg class="icon icon-close" aria-hidden="true" focusable="false">
               <use xlink:href="#icon-reset">
             </svg>
@@ -54,14 +51,14 @@
           </div>
         </div>
       {% endif %}
-      <button class="country-selector__close-button button--small link" type="button" aria-label="{{ 'accessibility.close' | t }}">
+      <button class="country-selector__close-button button--small link" type="button" aria-label="Close">
         {% render "icon-close" %}
       </button>
     </div>
     <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
     <div class="disclosure__list country-selector__list{% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}" id="{{ localPosition }}-country-results">
       {% if show_popular_countries %}
-        <ul role="list" class="list-unstyled popular-countries" aria-label="{{ 'localization.popular_countries_regions' | t }}">
+        <ul role="list" class="list-unstyled popular-countries" aria-label="Popular countries/regions">
           {%- for country in popular_countries -%}
             <li class="disclosure__item" tabindex="-1">
               <a class="link link--text disclosure__link caption-large focus-inset" href="#" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %} data-value="{{ country.iso_code }}" id="{{ country.name }}">

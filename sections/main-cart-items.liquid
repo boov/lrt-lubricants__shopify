@@ -1,32 +1,20 @@
-<script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+<script src="{{ "quantity-popover.js" | asset_url }}" defer="defer"></script>
 
 <section class="c_band">
   <div class="l_container">
-    <h1 class="u_margin-bottom--half">
-      {{ "sections.cart.title" | t }}
-    </h1>
-    <a href="{{ routes.all_products_collection_url }}" class="e_button">
-      {{- "general.continue_shopping" | t -}}
-    </a>
+    <h1 class="u_margin-bottom--half">Your cart</h1>
+    <a href="{{ routes.all_products_collection_url }}" class="e_button">Continue shopping</a>
   </div>
   <div class="l_container">
-    <h1 class="u_margin-bottom--half">
-      {{ "sections.cart.empty" | t }}
-    </h1>
-    <a href="{{ routes.all_products_collection_url }}" class="e_button">
-      {{ "general.continue_shopping" | t }}
-    </a>
+    <h1 class="u_margin-bottom--half">Your cart is empty</h1>
+    <a href="{{ routes.all_products_collection_url }}" class="e_button">Continue shopping</a>
   </div>
 
   {%- if shop.customer_accounts_enabled and customer == null -%}
 
     <div class="l_container">
-      <h2 class="u_margin-bottom--half">
-        {{ "sections.cart.login.title" | t }}
-      </h2>
-      <p>
-        {{ "sections.cart.login.paragraph_html" | t: link: routes.account_login_url }}
-      </p>
+      <h2 class="u_margin-bottom--half">Have an account?</h2>
+      <p>{{ "sections.cart.login.paragraph_html" | t: link: routes.account_login_url }}</p>
     </div>
 
   {%- endif -%}
@@ -39,23 +27,13 @@
           {%- if cart != empty -%}
 
             <table>
-              <caption>
-                {{ "sections.cart.title" | t }}
-              </caption>
+              <caption>Your cart</caption>
               <thead>
                 <tr>
-                  <th colspan="2" scope="col">
-                    {{ "sections.cart.headings.product" | t }}
-                  </th>
-                  <th colspan="1" scope="col">
-                    {{ "sections.cart.headings.total" | t }}
-                  </th>
-                  <th colspan="1" scope="col">
-                    {{ "sections.cart.headings.quantity" | t }}
-                  </th>
-                  <th colspan="1" scope="col">
-                    {{ "sections.cart.headings.total" | t }}
-                  </th>
+                  <th colspan="2" scope="col">Product</th>
+                  <th colspan="1" scope="col">Total</th>
+                  <th colspan="1" scope="col">Quantity</th>
+                  <th colspan="1" scope="col">Total</th>
                 </tr>
               </thead>
 
@@ -92,13 +70,13 @@
                       {%- if item.original_price != item.final_price -%}
                         <div>
                           <span>
-                            {{ "products.product.price.regular_price" | t }}
+                            Regular price
                           </span>
                           <s>
                             {{- item.original_price | money -}}
                           </s>
                           <span>
-                            {{ "products.product.price.sale_price" | t }}
+                            Sale price
                           </span>
                           <strong>
                             {{ item.final_price | money }}
@@ -151,7 +129,7 @@
                         </p>
                       {%- endif -%}
 
-                      <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      <ul class="discounts list-unstyled" role="list" aria-label="Discount">
                         {%- for discount in item.line_level_discount_allocations -%}
                           <li class="discounts__discount">
 
@@ -169,7 +147,7 @@
                         {%- if item.original_line_price != item.final_line_price -%}
                           <dl class="cart-item__discounted-prices">
                             <dt class="visually-hidden">
-                              {{ "products.product.price.regular_price" | t }}
+                              Regular price
                             </dt>
                             <dd>
                               <s class="cart-item__old-price price price--end">
@@ -177,7 +155,7 @@
                               </s>
                             </dd>
                             <dt class="visually-hidden">
-                              {{ "products.product.price.sale_price" | t }}
+                              Sale price
                             </dt>
                             <dd class="price price--end">
                               {{ item.final_line_price | money }}
@@ -192,7 +170,7 @@
                         {%- if item.variant.available and item.unit_price_measurement -%}
                           <div class="unit-price caption">
                             <span class="visually-hidden">
-                              {{ "products.product.price.unit_price" | t }}
+                              Unit price
                             </span>
                             {{ item.unit_price | money }}
                             <span>/
@@ -222,7 +200,7 @@
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                           <label class="visually-hidden" for="Quantity-{{ item.index | plus: 1 }}">
-                            {{ "products.product.quantity.label" | t }}
+                            Quantity
                           </label>
                           <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
                             {%- if has_qty_rules or has_vol_pricing -%}
@@ -237,7 +215,7 @@
                                 </span>
                                 {% render "icon-minus" %}
                               </button>
-                              <input class="quantity__input" data-quantity-variant-id="{{ item.variant.id }}" type="number" name="updates[]" value="{{ item.quantity }}" {% # theme-check-disable %} data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}" min="{{ item.variant.quantity_rule.min }}" {% if item.variant.quantity_rule.max != null %} max="{{ item.variant.quantity_rule.max }}" {% endif %} step="{{ item.variant.quantity_rule.increment }}" {% # theme-check-enable %} aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}" id="Quantity-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                              <input class="quantity__input" data-quantity-variant-id="{{ item.variant.id }}" type="number" name="updates[]" value="{{ item.quantity }}" {% # theme-check-disable %} data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}" min="{{ item.variant.quantity_rule.min }}" {% if item.variant.quantity_rule.max != null %} max="{{ item.variant.quantity_rule.max }}" {% endif %} step="{{ item.variant.quantity_rule.increment }}" {% # theme-check-enable %} aria-label="{{ "products.product.quantity.input_label" | t: product: item.product.title | escape }}" id="Quantity-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                               <button class="quantity__button" name="plus" type="button">
                                 <span class="visually-hidden">
                                   {{- "products.product.quantity.increase" | t: product: item.product.title | escape -}}
@@ -247,7 +225,7 @@
                             </quantity-input>
                           </div>
                           <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                            <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">Remove
+                            <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ "sections.cart.remove_title" | t: title: item.title }}">Remove
                             </a>
                           </cart-remove-button>
                         </div>
@@ -256,9 +234,9 @@
                             {% render "icon-info" %}
                             <span>
                               {%- if has_vol_pricing -%}
-                                {{ "products.product.volume_pricing.note" | t }}
+                                Volume pricing available
                               {%- elsif has_qty_rules -%}
-                                {{ "products.product.quantity.note" | t }}
+                                View quantity rules
                               {%- endif -%}
 
                             </span>
@@ -273,7 +251,7 @@
                             {%- if has_qty_rules == false -%}
 
                               <span class="volume-pricing-label caption">
-                                {{- "products.product.volume_pricing.title" | t -}}
+                                Volume Pricing
                               </span>
 
                             {%- endif -%}
@@ -305,7 +283,7 @@
                               {%- endif -%}
 
                             </div>
-                            <button class="button-close button button--tertiary medium-hide large-up-hide" type="button" aria-label="{{ 'accessibility.close' | t }}">
+                            <button class="button-close button button--tertiary medium-hide large-up-hide" type="button" aria-label="Close">
 
                               {%- render "icon-close" -%}
 
@@ -370,7 +348,7 @@
 
                           <dl class="cart-item__discounted-prices">
                             <dt class="visually-hidden">
-                              {{ "products.product.price.regular_price" | t }}
+                              Regular price
                             </dt>
                             <dd>
                               <s class="cart-item__old-price price price--end">
@@ -378,7 +356,7 @@
                               </s>
                             </dd>
                             <dt class="visually-hidden">
-                              {{ "products.product.price.sale_price" | t }}
+                              Sale price
                             </dt>
                             <dd class="price price--end">
                               {{ item.final_line_price | money }}
@@ -397,7 +375,7 @@
 
                           <div class="unit-price caption">
                             <span class="visually-hidden">
-                              {{ "products.product.price.unit_price" | t }}
+                              Unit price
                             </span>
 
                             {{ item.unit_price | money }}

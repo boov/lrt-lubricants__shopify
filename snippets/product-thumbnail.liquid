@@ -72,7 +72,7 @@
     </div>
     <button class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
       <span class="visually-hidden">
-        {{ 'products.product.media.open_media' | t: index: position }}
+        {{ "products.product.media.open_media" | t: index: position }}
       </span>
     </button>
   </modal-opener>
@@ -86,10 +86,10 @@
     <button id="Deferred-Poster-Modal-{{ media.id }}" class="deferred-media__poster" type="button">
       <span class="deferred-media__poster-button motion-reduce">
         {%- if media.media_type == 'model' -%}
-          <span class="visually-hidden">{{ 'products.product.media.play_model' | t }}</span>
+          <span class="visually-hidden">Play 3D Viewer</span>
           {%- render 'icon-3d-model' -%}
         {%- else -%}
-          <span class="visually-hidden">{{ 'products.product.media.play_video' | t }}</span>
+          <span class="visually-hidden">Play video</span>
           {%- render 'icon-play' -%}
         {%- endif -%}
       </span>
@@ -119,14 +119,14 @@
         <button
           class="button button--full-width product__xr-button"
           type="button"
-          aria-label="{{ 'products.product.xr_button_label' | t }}"
+          aria-label="View in your space, loads item in augmented reality window"
           data-shopify-xr
           data-shopify-model3d-id="{{ media.id }}"
           data-shopify-title="{{ product.title | escape }}"
           data-shopify-xr-hidden
         >
           {% render 'icon-3d-model' %}
-          {{ 'products.product.xr_button' | t }}
+          View in your space
         </button>
       {%- endif -%}
     {%- else -%}

@@ -1,6 +1,6 @@
 {%- if section.settings.enable_quick_add -%}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ "quick-add.js" | asset_url }}" defer="defer"></script>
+  <script src="{{ "product-form.js" | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 <div class="section-{{ section.id }}-padding gradient">
@@ -12,9 +12,7 @@
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
               <h2 class="facet-filters__label caption-large text-body">
-                <label for="SortBy">
-                  {{ "products.facets.sort_by_label" | t }}
-                </label>
+                <label for="SortBy">Sort by:</label>
               </h2>
               <div class="select">
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
@@ -49,7 +47,7 @@
     {%- endif -%}
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
-      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ "facets.js" | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside aria-labelledby="verticalTitle" class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="main-collection-filters" data-id="{{ section.id }}">
           {% render "facets"
@@ -67,8 +65,7 @@
             <div class="loading-overlay gradient"></div>
             <div class="title-wrapper center">
               <h2 class="title title--primary">
-                {{ "sections.collection_template.empty" | t -}}
-                <br>
+                No products found <br>
                 {{ "sections.collection_template.use_fewer_filters_html" | t: link: collection.url, class: "underlined-link link" }}
               </h2>
             </div>

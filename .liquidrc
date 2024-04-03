@@ -18,7 +18,7 @@
       "delimiterTerminus": "inline",
       "stripAttributeLines": true,
       "commentNewline": false,
-      "forceIndent": true,
+      "forceIndent": false,
       "commentIndent": true,
       "ignoreJS": true,
       "ignoreCSS": false,

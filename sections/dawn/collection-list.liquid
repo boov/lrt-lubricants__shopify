@@ -18,9 +18,7 @@ title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
         </h2>
 
         {%- if section.settings.show_view_all and show_mobile_slider -%}
-          <a href="{{ routes.collections_url }}" id="ViewAll-{{ section.id }}" class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}">
-            {{- "sections.collection_list.view_all" | t -}}
-          </a>
+          <a href="{{ routes.collections_url }}" id="ViewAll-{{ section.id }}" class="link underlined-link large-up-hide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" aria-labelledby="ViewAll-{{ section.id }} SectionHeading-{{ section.id }}">View all</a>
         {%- endif -%}
       </div>
     {%- endunless -%}
@@ -47,7 +45,7 @@ title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
       </ul>
       {%- if show_mobile_slider -%}
         <div class="slider-buttons">
-          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Slide left">
             {% render "icon-caret" %}
           </button>
           <div class="slider-counter caption">
@@ -57,26 +55,29 @@ title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
               /
             </span>
             <span class="visually-hidden">
-              {{ "general.slider.of" | t }}
+              of
             </span>
             <span class="slider-counter--total">
               {{ section.blocks.size }}
             </span>
           </div>
-          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="Slide right">
             {% render "icon-caret" %}
           </button>
         </div>
+
       {%- endif -%}
+
     </slider-component>
 
     {%- if section.settings.show_view_all and section.blocks.size < collections.size -%}
+
       <div class="center collection-list-view-all{% if show_mobile_slider %} small-hide medium-hide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% if settings.animations_reveal_on_scroll %} data-cascade {% endif %}>
-        <a href="{{ routes.collections_url }}" class="button" id="ViewAllButton-{{ section.id }}" aria-labelledby="ViewAllButton-{{ section.id }} SectionHeading-{{ section.id }}">
-          {{- "sections.collection_list.view_all" | t -}}
-        </a>
+        <a href="{{ routes.collections_url }}" class="button" id="ViewAllButton-{{ section.id }}" aria-labelledby="ViewAllButton-{{ section.id }} SectionHeading-{{ section.id }}">View all</a>
       </div>
+
     {%- endif -%}
+
   </div>
 </div>
 

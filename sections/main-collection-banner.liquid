@@ -6,17 +6,15 @@ endif %} gradient">
 endif %}">
     <div class="collection-hero__text-wrapper">
       <h1 class="collection-hero__title">
-        <span class="visually-hidden">
-          {{ "sections.collection_template.title" | t }}:
-        </span>
-        {{- collection.title | escape -}}
-      </h1>
+        <span class="visually-hidden">Collection:</span>
+        {{ collection.title | escape }}</h1>
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">
-          {{ collection.description }}
-        </div>
+
+        <div class="collection-hero__description rte">{{ collection.description }}</div>
+
       {%- endif -%}
+
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}

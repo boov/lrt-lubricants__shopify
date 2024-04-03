@@ -7,7 +7,7 @@
 
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
-    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
+    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="Menu">
       <span>
         {% render "icon-hamburger" %}
         {% render "icon-close" %}
@@ -85,9 +85,9 @@
                 {% render "icon-account" %}
                 {%- liquid
                   if customer
-                    echo 'customer.account_fallback' | t
+                    echo 'Account'
                   else
-                    echo 'customer.log_in' | t
+                    echo 'Log in'
                   endif
                 -%}
               </a>
@@ -101,7 +101,7 @@
                       , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderCountryMobileLabel">
-                          {{ "localization.country_label" | t }}
+                          Country/region
                         </h2>
                         {%- render "country-localization"
                           , localPosition: "HeaderCountryMobile" -%}
@@ -117,7 +117,7 @@
                       , class: 'localization-form' -%}
                       <div>
                         <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
-                          {{ "localization.language_label" | t }}
+                          Language
                         </h2>
                         {%- render "language-localization"
                           , localPosition: "HeaderLanguageMobile" -%}
@@ -133,7 +133,7 @@
                   <a href="{{ settings.social_twitter_link }}" class="list-social__link link">
                     {%- render "icon-twitter" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.twitter" | t }}
+                      X (Twitter)
                     </span>
                   </a>
                 </li>
@@ -143,7 +143,7 @@
                   <a href="{{ settings.social_facebook_link }}" class="list-social__link link">
                     {%- render "icon-facebook" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.facebook" | t }}
+                      Facebook
                     </span>
                   </a>
                 </li>
@@ -153,7 +153,7 @@
                   <a href="{{ settings.social_pinterest_link }}" class="list-social__link link">
                     {%- render "icon-pinterest" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.pinterest" | t }}
+                      Pinterest
                     </span>
                   </a>
                 </li>
@@ -163,7 +163,7 @@
                   <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
                     {%- render "icon-instagram" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.instagram" | t }}
+                      Instagram
                     </span>
                   </a>
                 </li>
@@ -173,7 +173,7 @@
                   <a href="{{ settings.social_tiktok_link }}" class="list-social__link link">
                     {%- render "icon-tiktok" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.tiktok" | t }}
+                      TikTok
                     </span>
                   </a>
                 </li>
@@ -183,7 +183,7 @@
                   <a href="{{ settings.social_tumblr_link }}" class="list-social__link link">
                     {%- render "icon-tumblr" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.tumblr" | t }}
+                      Tumblr
                     </span>
                   </a>
                 </li>
@@ -193,7 +193,7 @@
                   <a href="{{ settings.social_snapchat_link }}" class="list-social__link link">
                     {%- render "icon-snapchat" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.snapchat" | t }}
+                      Snapchat
                     </span>
                   </a>
                 </li>
@@ -203,7 +203,7 @@
                   <a href="{{ settings.social_youtube_link }}" class="list-social__link link">
                     {%- render "icon-youtube" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.youtube" | t }}
+                      YouTube
                     </span>
                   </a>
                 </li>
@@ -213,7 +213,7 @@
                   <a href="{{ settings.social_vimeo_link }}" class="list-social__link link">
                     {%- render "icon-vimeo" -%}
                     <span class="visually-hidden">
-                      {{ "general.social.links.vimeo" | t }}
+                      Vimeo
                     </span>
                   </a>
                 </li>

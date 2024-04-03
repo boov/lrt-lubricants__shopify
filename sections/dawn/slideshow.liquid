@@ -1,8 +1,8 @@
-<slideshow-component class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}">
+<slideshow-component class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}" role="region" aria-roledescription="Carousel" aria-label="{{ section.settings.accessibility_info | escape }}">
   {%- if section.settings.auto_rotate and section.blocks.size > 1 -%}
     <div class="slideshow__controls slideshow__controls--top slider-buttons{% if section.settings.show_text_below %}
 slideshow__controls--border-radius-mobile{% endif %}">
-      <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}" aria-controls="Slider-{{ section.id }}">
+      <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">
         {% render "icon-caret" %}
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual ==
@@ -14,7 +14,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
             /
           </span>
           <span class="visually-hidden">
-            {{ "general.slider.of" | t }}
+            of
           </span>
           <span class="slider-counter--total">
             {{ section.blocks.size }}
@@ -22,7 +22,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
         {%- else -%}
           <div class="slideshow__control-wrapper">
             {%- for block in section.blocks -%}
-              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
+              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="Load slide {{ forloop.index }} of {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                 {%- if section.settings.slider_visual == 'numbers' -%}
                   {{ forloop.index -}}
                 {%- else -%}
@@ -33,12 +33,12 @@ slideshow__controls--border-radius-mobile{% endif %}">
           </div>
         {%- endif -%}
       </div>
-      <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}" aria-controls="Slider-{{ section.id }}">
+      <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">
         {% render "icon-caret" %}
       </button>
 
       {%- if section.settings.auto_rotate -%}
-        <button type="button" class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}" aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}">
+        <button type="button" class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}" aria-label="Pause slideshow">
           {%- render "icon-pause" -%}
           {%- render "icon-play" -%}
         </button>
@@ -54,7 +54,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
       </style>
-      <div class="slideshow__slide grid__item grid--1-col slider__slide" id="Slide-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }} role="group" aria-roledescription="{{ 'sections.slideshow.slide' | t }}" aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" tabindex="-1">
+      <div class="slideshow__slide grid__item grid--1-col slider__slide" id="Slide-{{ section.id }}-{{ forloop.index }}" {{ block.shopify_attributes }} role="group" aria-roledescription="Slide" aria-label="{{ forloop.index }} of {{ forloop.length }}" tabindex="-1">
         <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if
 section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
           {%- if block.settings.image -%}
@@ -119,7 +119,7 @@ block.settings.text_alignment_mobile }}">
   {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
     <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %}
 slideshow__controls--border-radius-mobile{% endif %}">
-      <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}" aria-controls="Slider-{{ section.id }}">
+      <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous slide" aria-controls="Slider-{{ section.id }}">
         {% render "icon-caret" %}
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual ==
@@ -131,7 +131,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
             /
           </span>
           <span class="visually-hidden">
-            {{ "general.slider.of" | t }}
+            of
           </span>
           <span class="slider-counter--total">
             {{ section.blocks.size }}
@@ -139,7 +139,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
         {%- else -%}
           <div class="slideshow__control-wrapper">
             {%- for block in section.blocks -%}
-              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
+              <button class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link" aria-label="Load slide {{ forloop.index }} of {{ forloop.length }}" aria-controls="Slider-{{ section.id }}">
                 {%- if section.settings.slider_visual == 'numbers' -%}
                   {{ forloop.index -}}
                 {%- else -%}
@@ -150,12 +150,12 @@ slideshow__controls--border-radius-mobile{% endif %}">
           </div>
         {%- endif -%}
       </div>
-      <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'sections.slideshow.next_slideshow' | t }}" aria-controls="Slider-{{ section.id }}">
+      <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next slide" aria-controls="Slider-{{ section.id }}">
         {% render "icon-caret" %}
       </button>
 
       {%- if section.settings.auto_rotate -%}
-        <button type="button" class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}" aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}">
+        <button type="button" class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}" aria-label="Pause slideshow">
           {%- render "icon-pause" -%}
           {%- render "icon-play" -%}
         </button>
@@ -165,7 +165,7 @@ slideshow__controls--border-radius-mobile{% endif %}">
 </slideshow-component>
 
 {%- if request.design_mode -%}
-  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ "theme-editor.js" | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {% schema %}

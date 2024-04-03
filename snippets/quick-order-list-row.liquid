@@ -15,7 +15,7 @@
 
 {%- capture escaped_options -%}
   {% for option in variant.options -%}
-    {{ option | escape }}{%- unless forloop.last -%}{{ ' / ' }}{%- endunless -%}
+    {{ option | escape }}{%- unless forloop.last -%}{{ " / " }}{%- endunless -%}
   {%- endfor %}
 {%- endcapture -%}
 <tr class="variant-item{% unless section.settings.show_image %} variant-item--no-media{% endunless %}{% if item.available and item.unit_price_measurement %} variant-item--unit-price{% endif %}" id="Variant-{{ variant.id }}" data-variant-id="{{ variant.id }}" data-cart-qty="{{ cart_qty }}">
@@ -59,7 +59,7 @@ variant-item__image-container--no-img {% endunless %}">
     {%- if item.compare_at_price -%}
       <dl class="variant-item__discounted-prices">
         <dt class="visually-hidden">
-          {{ "products.product.price.regular_price" | t }}
+          Regular price
         </dt>
         <dd>
           <s class="variant-item__old-price price price--end">
@@ -67,7 +67,7 @@ variant-item__image-container--no-img {% endunless %}">
           </s>
         </dd>
         <dt class="visually-hidden">
-          {{ "products.product.price.sale_price" | t }}
+          Sale price
         </dt>
         <dd class="price">
           {%- if variant.quantity_price_breaks.size > 0 -%}
@@ -136,12 +136,12 @@ variant-item__image-container--no-img {% endunless %}">
     {%- if item.available and item.unit_price_measurement -%}
       <div class="unit-price caption">
         <span class="visually-hidden">
-          {{ "products.product.price.unit_price" | t }}
+          Unit price
         </span>
         {{ item.unit_price | money }}
         <span>/
         </span>
-        <span class="visually-hidden">&nbsp;{{ "accessibility.unit_price_separator" | t }}&nbsp;
+        <span class="visually-hidden">&nbsp;per&nbsp;
         </span>
         {%- if item.unit_price_measurement.reference_value != 1 -%}
           {{- item.unit_price_measurement.reference_value -}}
@@ -194,7 +194,7 @@ variant-item__image-container--no-img {% endunless %}">
       <div class="variant-item__quantity-wrapper quantity-popover-wrapper{% unless has_popover %}
 variant-item__quantity-wrapper--no-info{% endunless %}">
         <label class="visually-hidden" for="Quantity-{{ variant.id }}">
-          {{ "products.product.quantity.label" | t }}
+          Quantity
         </label>
         <div class="quantity-popover-container{% if is_available and has_popover %} quantity-popover-container--hover{% endif %}{% if
 cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
@@ -205,7 +205,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
           {%- endif -%}
           {%- if variant.available == false or quantity_rule_soldout -%}
             <span class="variant-item__sold-out">
-              {{ "products.product.sold_out" | t }}
+              Sold out
             </span>
           {%- else -%}
             {% comment %} TODO: Remove theme check {% endcomment %}
@@ -218,7 +218,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
         </div>
         {%- if cart_qty > 0 -%}
           <quick-order-list-remove-button id="Remove-{{ variant.id }}" data-index="{{ variant.id }}">
-            <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ 'sections.cart.remove_title' | t: title: escaped_options }}">
+            <a href="{{ item.url_to_remove }}" class="button button--tertiary" aria-label="{{ "sections.cart.remove_title" | t: title: escaped_options }}">
               {% render "icon-remove" %}
             </a>
           </quick-order-list-remove-button>
@@ -229,9 +229,9 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
           {% render "icon-info" %}
           <span>
             {%- if has_vol_pricing -%}
-              {{ "products.product.volume_pricing.note" | t }}
+              Volume pricing available
             {%- elsif has_qty_rules -%}
-              {{ "products.product.quantity.note" | t }}
+              View quantity rules
             {%- endif -%}
           </span>
         </button>
@@ -240,7 +240,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
         <div class="global-settings-popup quantity-popover__info" tabindex="-1" hidden>
           {%- if has_qty_rules == false -%}
             <span class="volume-pricing-label caption">
-              {{ "products.product.volume_pricing.title" | t }}
+              Volume Pricing
             </span>
           {%- endif -%}
           <div class="quantity__rules caption">
@@ -260,7 +260,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
               </span>
             {%- endif -%}
           </div>
-          <button class="button-close button button--tertiary large-up-hide" type="button" aria-label="{{ 'accessibility.close' | t }}">
+          <button class="button-close button button--tertiary large-up-hide" type="button" aria-label="Close">
             {%- render "icon-close" -%}
           </button>
           {%- if variant.quantity_price_breaks.size > 0 -%}
@@ -309,7 +309,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
     {%- if item.compare_at_price -%}
       <dl class="variant-item__discounted-prices">
         <dt class="visually-hidden">
-          {{ "products.product.price.regular_price" | t }}
+          Regular price
         </dt>
         <dd>
           <s class="variant-item__old-price price price--end">
@@ -317,7 +317,7 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
           </s>
         </dd>
         <dt class="visually-hidden">
-          {{ "products.product.price.sale_price" | t }}
+          Sale price
         </dt>
         <dd class="price">
           {%- if variant.quantity_price_breaks.size > 0 -%}
@@ -386,12 +386,12 @@ cart_qty == 0 %} quantity-popover-container--empty{% endif %}">
     {%- if item.available and item.unit_price_measurement -%}
       <div class="unit-price caption">
         <span class="visually-hidden">
-          {{ "products.product.price.unit_price" | t }}
+          Unit price
         </span>
         {{ item.unit_price | money }}
         <span>/
         </span>
-        <span class="visually-hidden">&nbsp;{{ "accessibility.unit_price_separator" | t }}&nbsp;
+        <span class="visually-hidden">&nbsp;per&nbsp;
         </span>
         {%- if item.unit_price_measurement.reference_value != 1 -%}
           {{- item.unit_price_measurement.reference_value -}}

@@ -2,11 +2,17 @@
   <div class="page-width page-width--narrow section-{{ section.id }}-padding">
     <h2 class="page-title {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger
 animate--slide-in{% endif %}">
+
       {%- if section.settings.page.title != blank -%}
+
         {{ section.settings.page.title | escape }}
+
       {%- else -%}
-        {{ "sections.page.title" | t }}
+
+        Page title
+
       {%- endif -%}
+
     </h2>
     <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       {%- if section.settings.page.content != blank -%}

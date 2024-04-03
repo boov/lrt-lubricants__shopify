@@ -4,13 +4,8 @@
     {%- if settings.show_cart_note -%}
 
       <div>
-        <label for="Cart-note">
-
-          {{ "sections.cart.note" | t }}
-
-        </label>
-
-        <textarea name="note" form="cart" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">
+        <label for="Cart-note">Order special instructions</label>
+        <textarea name="note" form="cart" id="Cart-note" placeholder="Order special instructions">
 
           {{ cart.note }}
 
@@ -37,7 +32,7 @@
 
                 {%- if cart.cart_level_discount_applications.size > 0 -%}
 
-                  <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                  <ul class="discounts list-unstyled" role="list" aria-label="Discount">
 
                     {%- for discount in cart.cart_level_discount_applications -%}
 
@@ -60,16 +55,8 @@
               </div>
 
               <div class="totals">
-                <h2 class="totals__total">
-
-                  {{ "sections.cart.estimated_total" | t }}
-
-                </h2>
-                <p class="totals__total-value">
-
-                  {{ cart.total_price | money_with_currency }}
-
-                </p>
+                <h2 class="totals__total">Estimated total</h2>
+                <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
               </div>
 
               <small class="tax-note caption-large rte">
@@ -80,7 +67,7 @@
 
                 {%- elsif cart.taxes_included -%}
 
-                  {{ "sections.cart.taxes_included_but_shipping_at_checkout" | t }}
+                  Tax included and shipping and discounts calculated at checkout
 
                 {%- elsif shop.shipping_policy.body != blank -%}
 
@@ -88,7 +75,7 @@
 
                 {%- else -%}
 
-                  {{ "sections.cart.taxes_and_shipping_at_checkout" | t }}
+                  Taxes, discounts and shipping calculated at checkout
 
                 {%- endif -%}
 
@@ -98,12 +85,7 @@
           {%- else -%}
 
             <div class="cart__ctas" {{ block.shopify_attributes }}>
-
-              <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout" {% if cart == empty %} disabled {% endif %} form="cart">
-
-                {{ "sections.cart.checkout" | t }}
-
-              </button>
+              <button type="submit" id="checkout" class="cart__checkout-button button" name="checkout" {% if cart == empty %} disabled {% endif %} form="cart">Check out</button>
             </div>
 
             {%- if additional_checkout_buttons -%}

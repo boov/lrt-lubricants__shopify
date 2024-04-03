@@ -9,6 +9,7 @@
     "shopify:check": "shopify theme check --environment lrt",
     "shopify:dev": "shopify theme dev --environment lrt",
     "shopify:push": "shopify theme push --development",
+    "shopify:pull": "shopify theme pull --development",
     "build": "node bundle.mjs",
     "dev": "run-p build shopify:dev"
   },
